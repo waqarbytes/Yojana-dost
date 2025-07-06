@@ -36,11 +36,14 @@ async function loadSchemes() {
             throw new Error('Failed to load schemes data');
         }
         
-        allSchemes = await response.json();
+        const data = await response.json();
+        console.log('Loaded schemes data:', data.length, 'schemes');
+        
+        allSchemes = data;
         filteredSchemes = [...allSchemes];
         
         // Apply initial search if present
-        const searchQuery = document.getElementById('schemeSearch').value;
+        const searchQuery = document.getElementById('schemeSearch')?.value;
         if (searchQuery) {
             searchSchemes();
         } else {
@@ -52,13 +55,20 @@ async function loadSchemes() {
         
     } catch (error) {
         console.error('Error loading schemes:', error);
-        loadingContainer.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>Failed to load schemes. Please try again later.</p>
-                <button class="btn btn-primary" onclick="loadSchemes()">Retry</button>
-            </div>
-        `;
+        loadingContainer.style.display = 'none';
+        
+        const container = document.getElementById('schemesContainer');
+        if (container) {
+            container.innerHTML = `
+                <div class="error-message" style="text-align: center; padding: 2rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px; margin: 2rem 0;">
+                    <i class="fas fa-exclamation-triangle" style="color: #ef4444; font-size: 2rem; margin-bottom: 1rem;"></i>
+                    <h3 style="color: #ef4444; margin-bottom: 1rem;">Failed to load schemes</h3>
+                    <p style="color: #6b7280; margin-bottom: 1rem;">Unable to load scheme data. Please try again later.</p>
+                    <button class="btn btn-primary" onclick="location.reload()">Retry</button>
+                </div>
+            `;
+            container.style.display = 'block';
+        }
     }
 }
 
