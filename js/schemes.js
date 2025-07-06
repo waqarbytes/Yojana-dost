@@ -31,7 +31,7 @@ async function loadSchemes() {
         loadingContainer.style.display = 'flex';
         schemesContainer.style.display = 'none';
         
-        const response = await fetch('data/schemes.json');
+        const response = await fetch('/data/schemes.json');
         if (!response.ok) {
             throw new Error('Failed to load schemes data');
         }
@@ -84,7 +84,9 @@ function searchSchemes() {
         filteredSchemes = allSchemes.filter(scheme => 
             scheme.title.toLowerCase().includes(query) ||
             scheme.description.toLowerCase().includes(query) ||
-            scheme.keywords.some(keyword => keyword.toLowerCase().includes(query))
+            scheme.category.toLowerCase().includes(query) ||
+            scheme.state.toLowerCase().includes(query) ||
+            (scheme.keywords && scheme.keywords.some(keyword => keyword.toLowerCase().includes(query)))
         );
     }
     

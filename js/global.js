@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeChatbot();
     addAnimationObserver();
+    initializeBackToTop();
+    initializeFooterFunctionality();
 });
 
 // Navigation Functions
@@ -48,6 +50,8 @@ function toggleChatbot() {
     const chatbotPopup = document.getElementById('chatbot-popup');
     const chatbotToggle = document.querySelector('.chatbot-toggle');
     
+    if (!chatbotPopup || !chatbotToggle) return;
+    
     if (isChatbotOpen) {
         chatbotPopup.classList.remove('active');
         chatbotToggle.innerHTML = '<i class="fas fa-comments"></i>';
@@ -87,6 +91,8 @@ function sendMessage() {
 
 function addMessage(message, sender) {
     const messagesContainer = document.getElementById('chatbot-messages');
+    if (!messagesContainer) return;
+    
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}-message`;
     
@@ -102,6 +108,8 @@ function addMessage(message, sender) {
 
 function showTypingIndicator() {
     const messagesContainer = document.getElementById('chatbot-messages');
+    if (!messagesContainer) return;
+    
     const typingDiv = document.createElement('div');
     typingDiv.className = 'message bot-message typing-indicator';
     typingDiv.innerHTML = `
@@ -280,3 +288,64 @@ const errorStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = errorStyles;
 document.head.appendChild(styleSheet);
+
+// Back to Top Functionality
+function initializeBackToTop() {
+    // Create back to top button if it doesn't exist
+    if (!document.querySelector('.back-to-top')) {
+        const backToTopBtn = document.createElement('button');
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTopBtn.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTopBtn);
+        
+        backToTopBtn.addEventListener('click', scrollToTop);
+    }
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn && window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else if (backToTopBtn) {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Footer Functionality
+function initializeFooterFunctionality() {
+    // Newsletter subscription
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            if (email) {
+                showNotification('Thank you for subscribing to our newsletter!', 'success');
+                this.querySelector('input').value = '';
+            }
+        });
+    }
+    
+    // Social media links analytics
+    document.querySelectorAll('.social-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            const platform = this.getAttribute('aria-label') || 'social';
+            console.log(`Social media click: ${platform}`);
+        });
+    });
+}
+
+// Add to global scope for external access
+window.validateForm = validateForm;
+window.showNotification = showNotification;
+window.getUrlParameter = getUrlParameter;
+window.scrollToTop = scrollToTop;
