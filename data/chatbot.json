@@ -1,0 +1,60 @@
+{
+  "responses": {
+    "greeting": [
+      "Hello! I'm your Yojana Dost assistant. How can I help you find government schemes today?",
+      "Welcome to Yojana Dost! I'm here to help you discover government schemes and services.",
+      "Hi there! I can help you find the perfect government scheme for your needs. What are you looking for?"
+    ],
+    "schemes": [
+      "I can help you find government schemes based on your category of interest. Are you looking for schemes related to agriculture, health, education, business, or something else?",
+      "There are many government schemes available. Let me help you find the ones that match your needs.",
+      "I can suggest schemes based on your requirements. What type of support are you looking for?"
+    ],
+    "eligibility": [
+      "Eligibility varies by scheme. Let me help you find schemes you're eligible for. Can you tell me about your background?",
+      "Each scheme has different eligibility criteria. I can help you check which schemes you qualify for.",
+      "To help you find eligible schemes, I need to know more about your situation."
+    ],
+    "application": [
+      "Most schemes can be applied for online through their respective portals. I can guide you through the application process.",
+      "Applications are typically submitted online. I can help you find the right portal and required documents.",
+      "I can help you with the application process. Each scheme has specific requirements and procedures."
+    ],
+    "documents": [
+      "Common documents needed include Aadhaar card, income certificate, bank details, and category certificates if applicable.",
+      "Document requirements vary by scheme. I can help you prepare the necessary paperwork.",
+      "Most schemes require basic identity and income proofs. Let me help you understand what's needed."
+    ],
+    "benefits": [
+      "Government schemes offer various benefits including financial assistance, subsidies, insurance coverage, and direct transfers.",
+      "Benefits depend on the scheme type. I can explain what each scheme offers.",
+      "Schemes provide different types of support - financial, healthcare, educational, and more."
+    ],
+    "default": [
+      "I'm here to help you with government schemes and services. You can ask me about eligibility, benefits, applications, or specific schemes.",
+      "I can assist you with information about government schemes. Try asking about specific categories or schemes you're interested in.",
+      "Feel free to ask me about any government scheme or service. I'm here to help!"
+    ],
+    "goodbye": [
+      "Thank you for using Yojana Dost! Feel free to reach out anytime for assistance with government schemes.",
+      "Goodbye! I hope I was able to help you find the information you needed.",
+      "Take care! Remember, I'm always here to help you with government schemes and services."
+    ]
+  },
+  "keywords": {
+    "greeting": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening", "namaste"],
+    "schemes": ["scheme", "yojana", "program", "benefit", "assistance", "support", "help"],
+    "eligibility": ["eligible", "qualify", "criteria", "requirements", "who can apply"],
+    "application": ["apply", "application", "how to apply", "process", "procedure", "submit"],
+    "documents": ["documents", "papers", "certificate", "proof", "required", "need"],
+    "benefits": ["benefit", "advantage", "money", "amount", "subsidy", "assistance"],
+    "agriculture": ["farmer", "agriculture", "crop", "land", "farming", "kisan"],
+    "health": ["health", "medical", "hospital", "insurance", "treatment", "doctor"],
+    "education": ["education", "school", "college", "student", "scholarship", "study"],
+    "business": ["business", "loan", "startup", "enterprise", "mudra", "entrepreneur"],
+    "women": ["women", "girl", "female", "maternity", "mother"],
+    "pension": ["pension", "old age", "senior citizen", "elderly", "retirement"],
+    "housing": ["house", "home", "housing", "construction", "property", "awas"],
+    "goodbye": ["bye", "goodbye", "thanks", "thank you", "exit", "quit"]
+  }
+}
