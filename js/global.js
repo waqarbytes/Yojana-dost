@@ -292,6 +292,250 @@ if (!document.getElementById('error-styles')) {
     document.head.appendChild(styleSheet);
 }
 
+// Global Search Functionality
+function toggleGlobalSearch() {
+    // Create search modal if it doesn't exist
+    if (!document.getElementById('globalSearchModal')) {
+        createGlobalSearchModal();
+    }
+    
+    const modal = document.getElementById('globalSearchModal');
+    modal.classList.toggle('active');
+    
+    if (modal.classList.contains('active')) {
+        document.getElementById('globalSearchInput').focus();
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function createGlobalSearchModal() {
+    const modalHTML = `
+        <div id="globalSearchModal" class="global-search-modal">
+            <div class="search-modal-content">
+                <div class="search-modal-header">
+                    <h3>Search Government Schemes</h3>
+                    <button onclick="toggleGlobalSearch()" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-input-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="globalSearchInput" placeholder="Search by scheme name, category, benefits..." onkeyup="performGlobalSearch()" />
+                </div>
+                <div id="globalSearchResults" class="search-results">
+                    <div class="search-placeholder">
+                        <i class="fas fa-search"></i>
+                        <p>Start typing to search through 200+ government schemes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Add modal styles
+    const styles = `
+        .global-search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .global-search-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .search-modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .search-modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .search-modal-header h3 {
+            margin: 0;
+            color: #1f2937;
+        }
+        
+        .search-input-container {
+            position: relative;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .search-input-container .search-icon {
+            position: absolute;
+            left: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+        }
+        
+        .search-input-container input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input-container input:focus {
+            border-color: #74b9ff;
+        }
+        
+        .search-results {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .search-placeholder {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6b7280;
+        }
+        
+        .search-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .search-result-item {
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            background: #f8fafc;
+            border-color: #74b9ff;
+        }
+        
+        .search-result-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .search-result-category {
+            display: inline-block;
+            background: #74b9ff;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        
+        .search-result-description {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    `;
+    
+    const styleElement = document.createElement('style');
+    styleElement.textContent = styles;
+    document.head.appendChild(styleElement);
+}
+
+async function performGlobalSearch() {
+    const query = document.getElementById('globalSearchInput').value.toLowerCase().trim();
+    const resultsContainer = document.getElementById('globalSearchResults');
+    
+    if (query.length < 2) {
+        resultsContainer.innerHTML = `
+            <div class="search-placeholder">
+                <i class="fas fa-search"></i>
+                <p>Start typing to search through 200+ government schemes</p>
+            </div>
+        `;
+        return;
+    }
+    
+    try {
+        const response = await fetch('/data/schemes.json');
+        const schemes = await response.json();
+        
+        const filteredSchemes = schemes.filter(scheme => 
+            scheme.title.toLowerCase().includes(query) ||
+            scheme.description.toLowerCase().includes(query) ||
+            scheme.category.toLowerCase().includes(query) ||
+            scheme.benefits.toLowerCase().includes(query) ||
+            scheme.eligibility.toLowerCase().includes(query)
+        );
+        
+        if (filteredSchemes.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-placeholder">
+                    <i class="fas fa-search"></i>
+                    <p>No schemes found for "${query}"</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Try different keywords or browse by categories</p>
+                </div>
+            `;
+            return;
+        }
+        
+        const resultsHTML = filteredSchemes.slice(0, 10).map(scheme => `
+            <div class="search-result-item" onclick="openSchemeFromSearch('${scheme.id}')">
+                <div class="search-result-title">${scheme.title}</div>
+                <div>
+                    <span class="search-result-category">${scheme.category}</span>
+                    <span class="search-result-category">${scheme.type}</span>
+                </div>
+                <div class="search-result-description">${scheme.description}</div>
+            </div>
+        `).join('');
+        
+        resultsContainer.innerHTML = resultsHTML;
+        
+    } catch (error) {
+        console.error('Error performing global search:', error);
+        resultsContainer.innerHTML = `
+            <div class="search-placeholder">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Error loading search results</p>
+            </div>
+        `;
+    }
+}
+
+function openSchemeFromSearch(schemeId) {
+    toggleGlobalSearch();
+    window.location.href = `schemes.html?search=${encodeURIComponent(schemeId)}`;
+}
+
 // Back to Top Functionality
 function initializeBackToTop() {
     // Create back to top button if it doesn't exist

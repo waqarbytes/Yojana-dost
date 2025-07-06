@@ -204,7 +204,29 @@ p {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 2rem;
+}
+
+.search-toggle {
+    background: rgba(116, 185, 255, 0.1);
+    border: 1px solid rgba(116, 185, 255, 0.3);
+    color: #74b9ff;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-toggle:hover {
+    background: #74b9ff;
+    color: white;
+    transform: scale(1.1);
 }
 
 .nav-link {
