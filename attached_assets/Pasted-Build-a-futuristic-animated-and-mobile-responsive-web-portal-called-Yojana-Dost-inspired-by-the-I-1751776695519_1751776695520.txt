@@ -1,0 +1,86 @@
+Build a futuristic, animated, and mobile-responsive web portal called Yojana Dost, inspired by the Indian Government’s UMANG portal (https://web.umang.gov.in/landing/), using only HTML, CSS, and vanilla JavaScript.
+
+✅ Do not use React, Angular, or any backend language or database.
+✅ Each page must have its own HTML, CSS, and JS files (no global CSS or single-page app logic).
+
+📄 Required Pages:
+index.html – Landing page with animations and scheme search
+
+schemes.html – List view with filtering and categories
+
+categories.html – Browse schemes by category (Health, Women, Farmers, etc.)
+
+state-schemes.html – Select Indian states and view respective schemes
+
+grievance.html – Complaint form (mock submit)
+
+contact.html – Name, email, message form
+
+about.html – Overview of the portal
+
+chatbot.html – Fullscreen chat assistant
+
+💬 Chatbot Assistant Requirements:
+Add a floating chatbot widget to the bottom-right of every page (except chatbot.html which should be full screen).
+
+The chatbot:
+
+Should be toggleable (open/close)
+
+Should use a pure JavaScript-based rule engine
+
+Must be trained with up to 400 real Indian government schemes
+
+Must load the Q&A pairs from a JSON file (like data/schemes.json)
+
+Must support exact match and keyword-based fuzzy search
+
+🧠 Example Bot Flow:
+json
+Copy
+Edit
+{
+  "pmay": "PMAY (Pradhan Mantri Awas Yojana) is a housing scheme for urban and rural poor.",
+  "pm-kisan": "PM-KISAN provides financial aid of ₹6000 per year to eligible farmers.",
+  "digital india": "Digital India is a campaign to transform India into a digitally empowered society and knowledge economy.",
+  ...
+}
+If user types: "Tell me about PMAY" → match pmay and show the reply.
+
+If user types: "what scheme is for students" → match keyword students and return schemes like NSP, scholarships.
+
+If no match: reply "❓ Sorry, I couldn't find that. Please rephrase or explore schemes."
+
+✨ Visual Requirements:
+Modern animations, smooth transitions, hover effects
+
+Clean and futuristic design (glassmorphism, neumorphism, or soft UI)
+
+Use Google Fonts, icons, and responsive layout
+
+📁 Folder Structure:
+bash
+Copy
+Edit
+/yojana-dost
+├── index.html
+├── schemes.html
+├── categories.html
+├── state-schemes.html
+├── grievance.html
+├── contact.html
+├── about.html
+├── chatbot.html
+├── /css
+│   ├── index.css
+│   ├── chatbot.css
+│   └── ...
+├── /js
+│   ├── index.js
+│   ├── chatbot.js
+│   └── ...
+├── /data
+│   └── schemes.json  ←  Contains ~400 schemes with title and description
+└── /assets
+    └── icons, logos, fonts, images
+✅ The chatbot must work offline, using the schemes.json as its knowledge base.

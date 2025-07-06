@@ -1,0 +1,105 @@
+Build a full-featured web portal called "Yojana Dost" using only HTML, CSS, and JavaScript (no React, Vue, Angular, or backend).
+
+The portal should replicate all key features and sections of UMANG web app, with a futuristic UI and full chatbot integration. Each page must have its own separate HTML, CSS, and JS files. No global styles or frameworks.
+
+📑 Pages to Include (Same as UMANG):
+index.html – Hero section, banner, featured services (UMANG landing clone)
+
+schemes.html – List/search/filter central + state government schemes
+
+categories.html – Browse by scheme types: Health, Farmers, Education, Women, Pension, etc.
+
+state-schemes.html – Dropdown + grid of state-wise schemes
+
+grievance.html – Complaint/feedback form with name, mobile, and Aadhaar
+
+services.html – UMANG services view (like DigiLocker, EPFO, CSC, etc.)
+
+my-profile.html – Static profile page layout (mock user data)
+
+about.html, contact.html, terms.html, faq.html – Informational pages
+
+chatbot.html – Full page dedicated to the chatbot UI
+
+🧠 Chatbot Assistant (On Every Page)
+A floating chatbot widget must appear on all pages
+
+Built using pure JavaScript only (no external API)
+
+Uses a local schemes.json file containing ~400 real Indian government schemes with:
+
+Title
+
+Short description
+
+Keywords (for fuzzy matching)
+
+Chatbot should:
+
+Auto-suggest answers based on fuzzy matching
+
+Match partial or exact queries
+
+Work offline — no server/API calls
+
+Style it using chatbot.css, functionality in chatbot.js
+
+🔧 Example Chatbot Behavior:
+json
+Copy
+Edit
+{
+  "pmay": {
+    "title": "Pradhan Mantri Awas Yojana",
+    "description": "Affordable housing for urban and rural poor under PMAY scheme.",
+    "keywords": ["housing", "home", "pmay", "urban", "rural"]
+  },
+  "pm-kisan": {
+    "title": "PM-KISAN",
+    "description": "₹6000 per year income support to eligible farmers.",
+    "keywords": ["farmers", "kisan", "support"]
+  }
+}
+User types: "What is pmay" → Response: description for PMAY
+
+User types: "I need help for farmers" → Match farmers → Response: PM-KISAN
+
+Unknown query → Response: “❓ Sorry, I couldn't find that. Please rephrase or explore schemes.”
+
+✨ Design Requirements:
+Futuristic visual style (glassmorphism, neumorphism, or soft UI)
+
+Mobile-friendly and responsive
+
+Use icons, Google Fonts, and smooth animations
+
+All pages must be well-commented, organized into folders:
+
+📁 Folder Structure
+bash
+Copy
+Edit
+/yojana-dost
+├── index.html
+├── schemes.html
+├── categories.html
+├── services.html
+├── state-schemes.html
+├── grievance.html
+├── my-profile.html
+├── about.html
+├── contact.html
+├── faq.html
+├── chatbot.html
+├── /css
+│   ├── chatbot.css
+│   ├── index.css
+│   ├── ...
+├── /js
+│   ├── chatbot.js
+│   ├── index.js
+│   ├── ...
+├── /data
+│   └── schemes.json  ← contains 400+ schemes
+├── /assets
+│   └── icons, logos, images
