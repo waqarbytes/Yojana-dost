@@ -177,8 +177,15 @@ function displaySchemes() {
     const noResults = document.getElementById('noResults');
     const resultsCount = document.getElementById('resultsCount');
     
-    if (!container || !filteredSchemes) {
-        console.error('Container or schemes data not found');
+    if (!container) {
+        console.error('Schemes container not found');
+        return;
+    }
+    
+    if (!filteredSchemes || filteredSchemes.length === 0) {
+        console.log('No schemes to display');
+        if (noResults) noResults.style.display = 'block';
+        container.style.display = 'none';
         return;
     }
     
@@ -202,8 +209,17 @@ function displaySchemes() {
     const endIndex = startIndex + itemsPerPage;
     const schemesToShow = filteredSchemes.slice(startIndex, endIndex);
     
+    console.log('Displaying schemes:', schemesToShow.length, 'of', filteredSchemes.length);
+    
     // Render schemes
-    container.innerHTML = schemesToShow.map(scheme => createSchemeCard(scheme)).join('');
+    try {
+        const cardsHTML = schemesToShow.map(scheme => createSchemeCard(scheme)).join('');
+        container.innerHTML = cardsHTML;
+        console.log('Rendered', schemesToShow.length, 'scheme cards');
+    } catch (error) {
+        console.error('Error rendering schemes:', error);
+        container.innerHTML = '<p>Error displaying schemes</p>';
+    }
     
     // Update pagination
     updatePagination(totalPages);
@@ -219,6 +235,11 @@ function displaySchemes() {
 }
 
 function createSchemeCard(scheme) {
+    if (!scheme || !scheme.id) {
+        console.error('Invalid scheme data:', scheme);
+        return '<div class="scheme-card error">Invalid scheme data</div>';
+    }
+    
     const isBookmarked = isSchemeBookmarked(scheme.id);
     const categoryColor = getCategoryColor(scheme.category);
     
@@ -228,16 +249,16 @@ function createSchemeCard(scheme) {
                 <span class="scheme-category" style="background: ${categoryColor}">
                     ${scheme.category}
                 </span>
-                <span class="scheme-state">${scheme.state}</span>
+                <span class="scheme-state">${scheme.state || scheme.type}</span>
             </div>
             
             <h3 class="scheme-title">${scheme.title}</h3>
             <p class="scheme-description">${scheme.description}</p>
             
             <div class="scheme-tags">
-                ${scheme.keywords.slice(0, 3).map(keyword => 
+                ${scheme.keywords ? scheme.keywords.slice(0, 3).map(keyword => 
                     `<span class="scheme-tag">${keyword}</span>`
-                ).join('')}
+                ).join('') : `<span class="scheme-tag">${scheme.category}</span>`}
             </div>
             
             <div class="scheme-footer">
@@ -487,8 +508,13 @@ function toggleBookmark(schemeId) {
 }
 
 function isSchemeBookmarked(schemeId) {
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarkedSchemes') || '[]');
-    return bookmarks.includes(schemeId);
+    try {
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarkedSchemes') || '[]');
+        return bookmarks.includes(schemeId);
+    } catch (error) {
+        console.error('Error checking bookmarks:', error);
+        return false;
+    }
 }
 
 function shareScheme(schemeId) {
