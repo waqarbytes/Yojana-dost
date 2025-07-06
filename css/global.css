@@ -842,7 +842,8 @@ p {
     margin-bottom: 2rem;
 }
 
-.footer-section h3 {
+.footer-section h3,
+.footer-section h4 {
     color: #74b9ff;
     margin-bottom: 1rem;
     font-size: 1.2rem;
@@ -861,11 +862,13 @@ p {
     margin: 0;
 }
 
-.footer-links li {
+.footer-links li,
+.footer-section ul li {
     margin-bottom: 0.5rem;
 }
 
-.footer-links a {
+.footer-links a,
+.footer-section ul a {
     color: #bdc3c7;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -874,11 +877,13 @@ p {
     gap: 0.5rem;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-section ul a:hover {
     color: #74b9ff;
 }
 
-.footer-links a i {
+.footer-links a i,
+.footer-section ul a i {
     width: 16px;
     text-align: center;
 }
