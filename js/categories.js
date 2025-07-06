@@ -43,61 +43,61 @@ function generateCategories() {
     
     // Define category information
     const categoryInfo = {
-        health: {
+        'Health': {
             title: 'Health & Medical',
             description: 'Healthcare schemes, medical insurance, and health-related benefits',
             icon: 'fas fa-heartbeat',
             color: '#10b981'
         },
-        education: {
+        'Education': {
             title: 'Education & Scholarships',
             description: 'Educational support, scholarships, and skill development programs',
             icon: 'fas fa-graduation-cap',
             color: '#3b82f6'
         },
-        agriculture: {
+        'Agriculture': {
             title: 'Agriculture & Farming',
             description: 'Farmer welfare schemes, agricultural support, and rural development',
             icon: 'fas fa-seedling',
             color: '#22c55e'
         },
-        women: {
+        'Women': {
             title: 'Women Empowerment',
             description: 'Women-centric schemes, empowerment programs, and gender equality initiatives',
             icon: 'fas fa-female',
             color: '#ec4899'
         },
-        housing: {
+        'Housing': {
             title: 'Housing & Shelter',
             description: 'Affordable housing schemes, home loans, and shelter programs',
             icon: 'fas fa-home',
             color: '#f59e0b'
         },
-        employment: {
+        'Employment': {
             title: 'Employment & Skills',
             description: 'Job creation, employment guarantee, and skill development programs',
             icon: 'fas fa-briefcase',
             color: '#8b5cf6'
         },
-        social: {
-            title: 'Social Welfare',
-            description: 'Social security schemes, welfare programs, and community support',
-            icon: 'fas fa-users',
+        'Business': {
+            title: 'Business & Entrepreneurship',
+            description: 'Business loans, startup support, and entrepreneurship schemes',
+            icon: 'fas fa-handshake',
             color: '#06b6d4'
         },
-        financial: {
-            title: 'Financial Services',
-            description: 'Banking services, financial inclusion, and monetary benefits',
+        'Pension': {
+            title: 'Pension & Social Security',
+            description: 'Pension schemes, social security, and elderly welfare programs',
             icon: 'fas fa-coins',
             color: '#ef4444'
         },
-        rural: {
+        'Rural': {
             title: 'Rural Development',
             description: 'Rural infrastructure, village development, and community programs',
             icon: 'fas fa-tractor',
             color: '#84cc16'
         },
-        digital: {
+        'Digital': {
             title: 'Digital India',
             description: 'Digital services, technology initiatives, and e-governance programs',
             icon: 'fas fa-laptop',
@@ -110,7 +110,12 @@ function generateCategories() {
         const category = scheme.category;
         if (!categoryMap.has(category)) {
             categoryMap.set(category, {
-                ...categoryInfo[category],
+                ...(categoryInfo[category] || {
+                    title: category,
+                    description: `${category} related government schemes and programs`,
+                    icon: 'fas fa-file-alt',
+                    color: '#6b7280'
+                }),
                 key: category,
                 schemes: [],
                 count: 0
@@ -128,6 +133,11 @@ function generateCategories() {
 function displayCategories() {
     const container = document.getElementById('categoriesGrid');
     
+    if (!container || !categories || categories.length === 0) {
+        console.error('Container or categories data not found');
+        return;
+    }
+    
     container.innerHTML = categories.map(category => createCategoryCard(category)).join('');
     
     // Add animation
@@ -141,8 +151,8 @@ function displayCategories() {
 }
 
 function createCategoryCard(category) {
-    const recentSchemes = category.schemes.slice(0, 3);
-    const tags = [...new Set(category.schemes.flatMap(s => s.keywords))].slice(0, 5);
+    const recentSchemes = category.schemes ? category.schemes.slice(0, 3) : [];
+    const tags = category.schemes ? [...new Set(category.schemes.flatMap(s => s.keywords || []))].slice(0, 5) : [];
     
     return `
         <div class="category-card" data-category="${category.key}" onclick="showCategoryDetails('${category.key}')">
@@ -185,11 +195,11 @@ function createCategoryCard(category) {
 }
 
 function countCentralSchemes(schemes) {
-    return schemes.filter(s => s.state === 'central').length;
+    return schemes.filter(s => s.type === 'Central').length;
 }
 
 function countStateSchemes(schemes) {
-    return schemes.filter(s => s.state !== 'central').length;
+    return schemes.filter(s => s.type === 'State').length;
 }
 
 function showCategoryDetails(categoryKey) {
@@ -208,8 +218,8 @@ function showCategoryDetails(categoryKey) {
 }
 
 function createCategoryDetailsContent(category) {
-    const topSchemes = category.schemes.slice(0, 10);
-    const keywords = [...new Set(category.schemes.flatMap(s => s.keywords))];
+    const topSchemes = category.schemes ? category.schemes.slice(0, 10) : [];
+    const keywords = category.schemes ? [...new Set(category.schemes.flatMap(s => s.keywords || []))] : [];
     
     return `
         <div class="category-overview">

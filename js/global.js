@@ -285,9 +285,12 @@ const errorStyles = `
     }
 `;
 
-const styleSheet = document.createElement('style');
-styleSheet.textContent = errorStyles;
-document.head.appendChild(styleSheet);
+if (!document.getElementById('error-styles')) {
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'error-styles';
+    styleSheet.textContent = errorStyles;
+    document.head.appendChild(styleSheet);
+}
 
 // Back to Top Functionality
 function initializeBackToTop() {

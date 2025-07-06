@@ -167,8 +167,15 @@ function displaySchemes() {
     const noResults = document.getElementById('noResults');
     const resultsCount = document.getElementById('resultsCount');
     
+    if (!container || !filteredSchemes) {
+        console.error('Container or schemes data not found');
+        return;
+    }
+    
     // Update results count
-    resultsCount.textContent = filteredSchemes.length;
+    if (resultsCount) {
+        resultsCount.textContent = filteredSchemes.length;
+    }
     
     if (filteredSchemes.length === 0) {
         container.style.display = 'none';
