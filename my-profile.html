@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Yojana Dost</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/my-profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="Yojana Dost">
+                <span>Yojana Dost</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="schemes.html" class="nav-link">Schemes</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="my-profile.html" class="nav-link active">Profile</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title">My Profile</h1>
+                <p class="page-subtitle">Manage your account and preferences</p>
+                <nav class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <span class="separator">/</span>
+                    <span>My Profile</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-content">
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/120x120/6366f1/ffffff?text=U" alt="Profile" id="profileImage">
+                            <button class="avatar-edit" onclick="editAvatar()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileName">Demo User</h3>
+                            <p id="profileEmail">demo@example.com</p>
+                            <p id="profilePhone">+91 9876543210</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="bookmarkedSchemes">0</span>
+                                <span class="stat-label">Bookmarked Schemes</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="appliedSchemes">0</span>
+                                <span class="stat-label">Applied Schemes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Navigation -->
+                    <div class="profile-nav">
+                        <button class="nav-item active" data-section="personal" onclick="showSection('personal')">
+                            <i class="fas fa-user"></i>
+                            Personal Information
+                        </button>
+                        <button class="nav-item" data-section="bookmarks" onclick="showSection('bookmarks')">
+                            <i class="fas fa-bookmark"></i>
+                            Bookmarked Schemes
+                        </button>
+                        <button class="nav-item" data-section="applications" onclick="showSection('applications')">
+                            <i class="fas fa-file-alt"></i>
+                            My Applications
+                        </button>
+                        <button class="nav-item" data-section="preferences" onclick="showSection('preferences')">
+                            <i class="fas fa-cog"></i>
+                            Preferences
+                        </button>
+                        <button class="nav-item" data-section="security" onclick="showSection('security')">
+                            <i class="fas fa-shield-alt"></i>
+                            Security
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Main Content -->
+                <div class="profile-main">
+                    <!-- Personal Information Section -->
+                    <div id="personal-section" class="profile-section active">
+                        <div class="section-header">
+                            <h2>Personal Information</h2>
+                            <button class="btn btn-secondary" onclick="editProfile()">
+                                <i class="fas fa-edit"></i>
+                                Edit Profile
+                            </button>
+                        </div>
+
+                        <div class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" value="Demo" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" value="User" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" value="demo@example.com" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" value="+91 9876543210" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                    <input type="date" id="dateOfBirth" name="dateOfBirth" value="1990-01-01" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender" disabled>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="aadhaar">Aadhaar Number</label>
+                                    <input type="text" id="aadhaar" name="aadhaar" value="xxxx-xxxx-1234" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pan">PAN Number</label>
+                                    <input type="text" id="pan" name="pan" value="ABCDE1234F" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3" readonly>123 Demo Street, Demo City, Demo State - 123456</textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <select id="state" name="state" disabled>
+                                        <option value="maharashtra" selected>Maharashtra</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="district">District</label>
+                                    <input type="text" id="district" name="district" value="Mumbai" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-actions" id="profileActions" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="cancelEdit()">
+                                    <i class="fas fa-times"></i>
+                                    Cancel
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="saveProfile()">
+                                    <i class="fas fa-save"></i>
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bookmarked Schemes Section -->
+                    <div id="bookmarks-section" class="profile-section">
+                        <div class="section-header">
+                            <h2>Bookmarked Schemes</h2>
+                            <button class="btn btn-secondary" onclick="clearAllBookmarks()">
+                                <i class="fas fa-trash"></i>
+                                Clear All
+                            </button>
+                        </div>
+
+                        <div class="bookmarks-grid" id="bookmarksGrid">
+                            <div class="empty-state">
+                                <i class="fas fa-bookmark"></i>
+                                <h3>No bookmarked schemes</h3>
+                                <p>Start bookmarking schemes to see them here</p>
+                                <a href="schemes.html" class="btn btn-primary">
+                                    <i class="fas fa-search"></i>
+                                    Browse Schemes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Applications Section -->
+                    <div id="applications-section" class="profile-section">
+                        <div class="section-header">
+                            <h2>My Applications</h2>
+                            <button class="btn btn-secondary" onclick="refreshApplications()">
+                                <i class="fas fa-refresh"></i>
+                                Refresh
+                            </button>
+                        </div>
+
+                        <div class="applications-list" id="applicationsList">
+                            <div class="empty-state">
+                                <i class="fas fa-file-alt"></i>
+                                <h3>No applications submitted</h3>
+                                <p>Your scheme applications will appear here</p>
+                                <a href="schemes.html" class="btn btn-primary">
+                                    <i class="fas fa-plus"></i>
+                                    Apply for Schemes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferences Section -->
+                    <div id="preferences-section" class="profile-section">
+                        <div class="section-header">
+                            <h2>Preferences</h2>
+                            <button class="btn btn-secondary" onclick="resetPreferences()">
+                                <i class="fas fa-undo"></i>
+                                Reset to Default
+                            </button>
+                        </div>
+
+                        <div class="preferences-form">
+                            <div class="preference-group">
+                                <h3>Notification Preferences</h3>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="emailNotifications" checked>
+                                        <span class="checkmark"></span>
+                                        Email notifications for new schemes
+                                    </label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="smsNotifications" checked>
+                                        <span class="checkmark"></span>
+                                        SMS notifications for application updates
+                                    </label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="pushNotifications">
+                                        <span class="checkmark"></span>
+                                        Push notifications
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="preference-group">
+                                <h3>Language & Region</h3>
+                                <div class="form-group">
+                                    <label for="language">Preferred Language</label>
+                                    <select id="language" name="language">
+                                        <option value="en" selected>English</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="mr">Marathi</option>
+                                        <option value="ta">Tamil</option>
+                                        <option value="te">Telugu</option>
+                                        <option value="bn">Bengali</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone" name="timezone">
+                                        <option value="IST" selected>India Standard Time (IST)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="preference-group">
+                                <h3>Privacy Settings</h3>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="profileVisibility" checked>
+                                        <span class="checkmark"></span>
+                                        Make profile visible to support team
+                                    </label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="dataSharing">
+                                        <span class="checkmark"></span>
+                                        Share anonymized data for service improvement
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-primary" onclick="savePreferences()">
+                                    <i class="fas fa-save"></i>
+                                    Save Preferences
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div id="security-section" class="profile-section">
+                        <div class="section-header">
+                            <h2>Security Settings</h2>
+                        </div>
+
+                        <div class="security-form">
+                            <div class="security-group">
+                                <h3>Change Password</h3>
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" name="currentPassword">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" name="newPassword">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword">
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="changePassword()">
+                                    <i class="fas fa-key"></i>
+                                    Change Password
+                                </button>
+                            </div>
+
+                            <div class="security-group">
+                                <h3>Two-Factor Authentication</h3>
+                                <p>Add an extra layer of security to your account</p>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="twoFactorAuth">
+                                        <span class="checkmark"></span>
+                                        Enable Two-Factor Authentication
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="setupTwoFactor()">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    Setup 2FA
+                                </button>
+                            </div>
+
+                            <div class="security-group">
+                                <h3>Login Activity</h3>
+                                <p>Recent login activities on your account</p>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-info">
+                                            <strong>Login from Chrome</strong>
+                                            <p>Mumbai, Maharashtra • Today at 10:30 AM</p>
+                                        </div>
+                                        <span class="activity-status current">Current</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-info">
+                                            <strong>Login from Mobile App</strong>
+                                            <p>Mumbai, Maharashtra • Yesterday at 3:15 PM</p>
+                                        </div>
+                                        <span class="activity-status">Previous</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="security-group danger-zone">
+                                <h3>Danger Zone</h3>
+                                <p>Irreversible actions that affect your account</p>
+                                <button type="button" class="btn btn-danger" onclick="deactivateAccount()">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Deactivate Account
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Yojana Dost</h3>
+                    <p>Your trusted partner for accessing government schemes and digital services.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="schemes.html">All Schemes</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="state-schemes.html">State Schemes</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="grievance.html">Grievance</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yojana Dost. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <div class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-popup" id="chatbot-popup">
+            <div class="chatbot-header">
+                <h4>AI Assistant</h4>
+                <button class="close-btn" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hi! I can help you manage your profile and account settings. What would you like to know?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your question...">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/my-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Portal - Yojana Dost</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/grievance.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="Yojana Dost">
+                <span>Yojana Dost</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="schemes.html" class="nav-link">Schemes</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="my-profile.html" class="nav-link">Profile</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title">Grievance Portal</h1>
+                <p class="page-subtitle">Report issues, complaints, and feedback regarding government services</p>
+                <nav class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <span class="separator">/</span>
+                    <span>Grievance</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grievance Options -->
+    <section class="grievance-options">
+        <div class="container">
+            <h2 class="section-title">How can we help you?</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="selectGrievanceType('complaint')">
+                    <div class="option-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>File a Complaint</h3>
+                    <p>Report issues with government services or schemes</p>
+                </div>
+
+                <div class="option-card" onclick="selectGrievanceType('suggestion')">
+                    <div class="option-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Submit Suggestion</h3>
+                    <p>Share suggestions for improving services</p>
+                </div>
+
+                <div class="option-card" onclick="selectGrievanceType('feedback')">
+                    <div class="option-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Provide Feedback</h3>
+                    <p>Share your experience with our services</p>
+                </div>
+
+                <div class="option-card" onclick="selectGrievanceType('inquiry')">
+                    <div class="option-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>General Inquiry</h3>
+                    <p>Ask questions about schemes and services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grievance Form -->
+    <section class="grievance-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Submit Your Grievance</h2>
+                    <p>Please fill out the form below to submit your grievance. We will respond within 7 working days.</p>
+                </div>
+
+                <form id="grievanceForm" class="grievance-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="grievanceType">Type of Grievance <span class="required">*</span></label>
+                            <select id="grievanceType" name="grievanceType" required>
+                                <option value="">Select Type</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priority">Priority <span class="required">*</span></label>
+                            <select id="priority" name="priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number <span class="required">*</span></label>
+                            <input type="tel" id="mobile" name="mobile" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aadhaar">Aadhaar Number</label>
+                            <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" maxlength="12">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="state">State <span class="required">*</span></label>
+                            <select id="state" name="state" required>
+                                <option value="">Select State</option>
+                                <option value="andhra-pradesh">Andhra Pradesh</option>
+                                <option value="assam">Assam</option>
+                                <option value="bihar">Bihar</option>
+                                <option value="chhattisgarh">Chhattisgarh</option>
+                                <option value="goa">Goa</option>
+                                <option value="gujarat">Gujarat</option>
+                                <option value="haryana">Haryana</option>
+                                <option value="himachal-pradesh">Himachal Pradesh</option>
+                                <option value="jharkhand">Jharkhand</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="madhya-pradesh">Madhya Pradesh</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="manipur">Manipur</option>
+                                <option value="meghalaya">Meghalaya</option>
+                                <option value="mizoram">Mizoram</option>
+                                <option value="nagaland">Nagaland</option>
+                                <option value="odisha">Odisha</option>
+                                <option value="punjab">Punjab</option>
+                                <option value="rajasthan">Rajasthan</option>
+                                <option value="sikkim">Sikkim</option>
+                                <option value="tamil-nadu">Tamil Nadu</option>
+                                <option value="telangana">Telangana</option>
+                                <option value="tripura">Tripura</option>
+                                <option value="uttar-pradesh">Uttar Pradesh</option>
+                                <option value="uttarakhand">Uttarakhand</option>
+                                <option value="west-bengal">West Bengal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="relatedScheme">Related Scheme/Service</label>
+                            <input type="text" id="relatedScheme" name="relatedScheme" placeholder="Enter scheme or service name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <input type="text" id="subject" name="subject" required placeholder="Brief description of your grievance">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Detailed Description <span class="required">*</span></label>
+                        <textarea id="description" name="description" required rows="5" placeholder="Please provide detailed description of your grievance"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachments">Attachments (Optional)</label>
+                        <div class="file-upload-area">
+                            <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                            <div class="file-upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop files here or click to select</p>
+                                <small>Supported formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" onclick="openTermsModal()">Terms and Conditions</a> and <a href="#" onclick="openPrivacyModal()">Privacy Policy</a> <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="emailUpdates" name="emailUpdates">
+                            <span class="checkmark"></span>
+                            I want to receive email updates about my grievance status
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-undo"></i>
+                            Reset Form
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Grievance
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Grievance -->
+    <section class="track-grievance">
+        <div class="container">
+            <div class="track-container">
+                <h2>Track Your Grievance</h2>
+                <p>Enter your grievance ID to track the status of your complaint</p>
+                
+                <div class="track-form">
+                    <input type="text" id="trackingId" placeholder="Enter Grievance ID (e.g., GRV202500001)">
+                    <button class="btn btn-primary" onclick="trackGrievance()">
+                        <i class="fas fa-search"></i>
+                        Track Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Yojana Dost</h3>
+                    <p>Your trusted partner for accessing government schemes and digital services.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="schemes.html">All Schemes</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="state-schemes.html">State Schemes</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="grievance.html">Grievance</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yojana Dost. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <div class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-popup" id="chatbot-popup">
+            <div class="chatbot-header">
+                <h4>AI Assistant</h4>
+                <button class="close-btn" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hi! I can help you with filing grievances and tracking complaint status. What do you need help with?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your question...">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/grievance.js"></script>
+</body>
+</html>

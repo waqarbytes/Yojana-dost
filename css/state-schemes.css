@@ -1,0 +1,542 @@
+/* State Schemes Page Styles */
+body {
+    padding-top: 80px;
+    background: var(--surface);
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+    color: white;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* State Selection */
+.state-selection {
+    background: white;
+    padding: 3rem 0;
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border);
+}
+
+.selection-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.selection-header h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.selection-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.state-selector {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-state {
+    flex: 1;
+    position: relative;
+}
+
+.search-state input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-state input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-state i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+.state-dropdown {
+    min-width: 200px;
+}
+
+.state-dropdown select {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    background: white;
+    color: var(--text-primary);
+}
+
+.state-dropdown select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* States Grid */
+.states-grid-section {
+    padding: 4rem 0;
+}
+
+.states-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.state-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.state-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.state-card:hover::before {
+    transform: scaleX(1);
+}
+
+.state-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.state-flag {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.state-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.state-scheme-count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.state-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.state-category {
+    background: var(--surface);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* State Details */
+.state-details {
+    background: white;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.state-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.state-info h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.state-info p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.state-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.state-filters {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.filter-group select {
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    background: white;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+    min-width: 150px;
+}
+
+.filter-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.state-schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.state-scheme-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.state-scheme-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.scheme-category-badge {
+    display: inline-block;
+    background: var(--gradient-secondary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.scheme-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.scheme-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.scheme-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.scheme-keyword {
+    background: var(--surface);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Loading State */
+.loading-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    color: var(--text-secondary);
+}
+
+.loading-container.active {
+    display: flex;
+}
+
+.loading-container .loading {
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .state-selector {
+        flex-direction: column;
+    }
+    
+    .state-dropdown {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .state-header {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .state-stats {
+        justify-content: center;
+    }
+    
+    .state-filters {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .filter-group label {
+        min-width: 80px;
+    }
+    
+    .filter-group select {
+        flex: 1;
+    }
+    
+    .states-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .state-schemes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .state-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .state-card {
+        padding: 1.5rem;
+    }
+    
+    .state-flag {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .state-scheme-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation Classes */
+.state-card.animate-in {
+    animation: slideInUp 0.5s ease-out;
+}
+
+.state-scheme-card.animate-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* State-specific colors */
+.state-card[data-state="central"] .state-flag {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.state-card[data-state="maharashtra"] .state-flag {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.state-card[data-state="uttar-pradesh"] .state-flag {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.state-card[data-state="karnataka"] .state-flag {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.state-card[data-state="tamil-nadu"] .state-flag {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.state-card[data-state="gujarat"] .state-flag {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+.state-card[data-state="west-bengal"] .state-flag {
+    background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+}
+
+.state-card[data-state="rajasthan"] .state-flag {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+

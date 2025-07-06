@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - Yojana Dost</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="Yojana Dost">
+                <span>Yojana Dost</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="schemes.html" class="nav-link">Schemes</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="my-profile.html" class="nav-link">Profile</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chatbot Interface -->
+    <section class="chatbot-interface">
+        <div class="container">
+            <div class="chatbot-container">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="bot-info">
+                        <div class="bot-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="bot-details">
+                            <h2>AI Assistant</h2>
+                            <p class="bot-status">
+                                <span class="status-indicator online"></span>
+                                Online - Ready to help
+                            </p>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="action-btn" onclick="clearChat()" title="Clear Chat">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="action-btn" onclick="exportChat()" title="Export Chat">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn minimize-btn" onclick="toggleChatSize()" title="Minimize">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                Hello! I'm your AI assistant for government schemes. I can help you with:
+                                <ul>
+                                    <li>Finding relevant schemes based on your profile</li>
+                                    <li>Explaining eligibility criteria</li>
+                                    <li>Providing application guidance</li>
+                                    <li>Answering questions about benefits</li>
+                                </ul>
+                                Ask me anything about government schemes or type one of the quick options below!
+                            </div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions" id="quickActions">
+                    <div class="quick-action-item" onclick="sendQuickMessage('What schemes are available for farmers?')">
+                        <i class="fas fa-seedling"></i>
+                        <span>Farmer Schemes</span>
+                    </div>
+                    <div class="quick-action-item" onclick="sendQuickMessage('Show me health schemes')">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Health Schemes</span>
+                    </div>
+                    <div class="quick-action-item" onclick="sendQuickMessage('What is PM-KISAN?')">
+                        <i class="fas fa-info-circle"></i>
+                        <span>PM-KISAN Info</span>
+                    </div>
+                    <div class="quick-action-item" onclick="sendQuickMessage('Education scholarships for students')">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Education</span>
+                    </div>
+                    <div class="quick-action-item" onclick="sendQuickMessage('Housing schemes for women')">
+                        <i class="fas fa-home"></i>
+                        <span>Housing</span>
+                    </div>
+                    <div class="quick-action-item" onclick="sendQuickMessage('Digital India schemes')">
+                        <i class="fas fa-laptop"></i>
+                        <span>Digital India</span>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-container">
+                    <div class="chat-input">
+                        <div class="input-group">
+                            <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
+                            <button class="voice-btn" onclick="toggleVoiceInput()" title="Voice Input">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <button class="send-btn" onclick="sendMessage()" title="Send Message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-suggestions" id="inputSuggestions">
+                        <!-- Suggestions will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Features -->
+    <section class="chatbot-features">
+        <div class="container">
+            <h2 class="section-title">AI Assistant Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Intelligent Responses</h3>
+                    <p>Powered by advanced AI trained on 400+ government schemes for accurate and relevant answers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Smart Search</h3>
+                    <p>Find schemes using natural language queries with fuzzy matching and keyword recognition.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Personalized Recommendations</h3>
+                    <p>Get scheme suggestions based on your profile, location, and specific requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Availability</h3>
+                    <p>Get instant answers anytime, anywhere without waiting for human support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Yojana Dost</h3>
+                    <p>Your trusted partner for accessing government schemes and digital services.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="schemes.html">All Schemes</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="state-schemes.html">State Schemes</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="grievance.html">Grievance</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yojana Dost. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/global.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Yojana Dost</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="Yojana Dost">
+                <span>Yojana Dost</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="schemes.html" class="nav-link">Schemes</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="my-profile.html" class="nav-link">Profile</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title">Frequently Asked Questions</h1>
+                <p class="page-subtitle">Find answers to common questions about government schemes and services</p>
+                <nav class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <span class="separator">/</span>
+                    <span>FAQ</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Search -->
+    <section class="faq-search">
+        <div class="container">
+            <div class="search-container">
+                <h2>Search for Answers</h2>
+                <div class="search-box">
+                    <input type="text" id="faqSearch" placeholder="Search FAQs...">
+                    <button onclick="searchFAQ()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="faq-categories">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">All Questions</button>
+                <button class="filter-btn" data-category="general">General</button>
+                <button class="filter-btn" data-category="schemes">Schemes</button>
+                <button class="filter-btn" data-category="application">Applications</button>
+                <button class="filter-btn" data-category="eligibility">Eligibility</button>
+                <button class="filter-btn" data-category="technical">Technical</button>
+                <button class="filter-btn" data-category="account">Account</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <div class="faq-grid">
+                <!-- General Questions -->
+                <div class="faq-category-section" data-category="general">
+                    <h3 class="category-title">General Questions</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What is Yojana Dost?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yojana Dost is a comprehensive digital platform that provides access to over 400 government schemes from central and state governments. It helps citizens discover, understand, and apply for various welfare schemes and benefits they are eligible for.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Is Yojana Dost free to use?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, Yojana Dost is completely free to use. All features including scheme search, AI chatbot assistance, and application tracking are available at no cost to all citizens.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How often is the information updated?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Our database is updated regularly to ensure you have access to the latest scheme information. We monitor government announcements and update our records as soon as new schemes are launched or existing ones are modified.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Do I need to create an account to use the platform?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>While you can browse schemes without an account, creating a profile allows you to bookmark schemes, track applications, and receive personalized recommendations. Account creation is optional but recommended for a better experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schemes Questions -->
+                <div class="faq-category-section" data-category="schemes">
+                    <h3 class="category-title">Government Schemes</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How many schemes are available on the platform?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Currently, we have over 400 government schemes from both central and state governments covering various categories including health, education, agriculture, women empowerment, housing, and more.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I find schemes relevant to me?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>You can use our search feature, browse by categories, filter by state, or use our AI chatbot to find schemes relevant to your profile. The chatbot can provide personalized recommendations based on your requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Are both central and state schemes included?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, we include both central government schemes that are applicable nationwide and state-specific schemes from all Indian states and union territories.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What information is provided for each scheme?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>For each scheme, we provide details including eligibility criteria, benefits, required documents, application process, deadlines, and direct links to official application portals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Questions -->
+                <div class="faq-category-section" data-category="application">
+                    <h3 class="category-title">Applications</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Can I apply for schemes directly through Yojana Dost?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yojana Dost serves as an information portal. While we provide comprehensive scheme details and guidance, actual applications must be submitted through official government portals. We provide direct links to these official application portals.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I track my application status?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Application tracking is done through the respective government portals where you submitted your application. We provide links to these tracking systems and guidance on how to check your application status.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What documents are typically required for applications?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Required documents vary by scheme but commonly include Aadhaar card, income certificate, residence proof, bank account details, and category certificates (if applicable). Specific requirements are listed for each scheme.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Can I apply for multiple schemes at once?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, you can apply for multiple schemes simultaneously as long as you meet the eligibility criteria for each scheme. However, some schemes may have restrictions on concurrent applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eligibility Questions -->
+                <div class="faq-category-section" data-category="eligibility">
+                    <h3 class="category-title">Eligibility</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I know if I'm eligible for a scheme?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Each scheme page contains detailed eligibility criteria including age, income, residence, category, and other requirements. You can also use our AI chatbot to get personalized eligibility assessment.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Are schemes available for all states?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Central government schemes are available nationwide, while state schemes are specific to respective states. Use our state filter to find schemes applicable to your location.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Do I need to belong to a specific category to apply?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>While some schemes are category-specific (SC/ST/OBC/EWS), many schemes are available to all citizens regardless of category. Eligibility criteria are clearly mentioned for each scheme.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What if I don't meet all the eligibility criteria?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>If you don't meet all criteria for a specific scheme, explore other schemes in the same category or use our AI chatbot to find alternative schemes that match your profile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Questions -->
+                <div class="faq-category-section" data-category="technical">
+                    <h3 class="category-title">Technical Support</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Is the website mobile-friendly?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, Yojana Dost is fully responsive and optimized for mobile devices, tablets, and desktops. You can access all features seamlessly across different devices.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How does the AI chatbot work?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Our AI chatbot is trained on our comprehensive database of 400+ schemes. It uses natural language processing to understand your queries and provide relevant scheme information, eligibility details, and application guidance.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What browsers are supported?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yojana Dost works on all modern browsers including Chrome, Firefox, Safari, Edge, and mobile browsers. We recommend using the latest version of your preferred browser for the best experience.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>I'm experiencing technical issues. How can I get help?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>For technical issues, you can contact our support team through the Contact Us page, file a grievance, or use the AI chatbot for immediate assistance. We typically respond within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Questions -->
+                <div class="faq-category-section" data-category="account">
+                    <h3 class="category-title">Account Management</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I create an account?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Click on the "Profile" link in the navigation menu to access the account creation page. You'll need to provide basic information like name, email, and phone number to create your account.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I reset my password?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Use the "Forgot Password" link on the login page. Enter your registered email address, and we'll send you instructions to reset your password.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Can I update my profile information?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, you can update your profile information anytime by going to your profile page and clicking the "Edit Profile" button. Keep your information updated for better scheme recommendations.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Is my personal information secure?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, we use industry-standard security measures to protect your personal information. Your data is encrypted and stored securely. We never share your personal information with third parties without your consent.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Have Questions -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-cta">
+                <h2>Still Have Questions?</h2>
+                <p>If you couldn't find the answer you're looking for, our support team is here to help.</p>
+                <div class="contact-options">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Contact Support
+                    </a>
+                    <a href="chatbot.html" class="btn btn-secondary">
+                        <i class="fas fa-robot"></i>
+                        Chat with AI
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Yojana Dost</h3>
+                    <p>Your trusted partner for accessing government schemes and digital services.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="schemes.html">All Schemes</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="state-schemes.html">State Schemes</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="grievance.html">Grievance</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yojana Dost. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <div class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-popup" id="chatbot-popup">
+            <div class="chatbot-header">
+                <h4>AI Assistant</h4>
+                <button class="close-btn" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hi! I can help you find answers to your questions. What would you like to know about our services?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your question...">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>
