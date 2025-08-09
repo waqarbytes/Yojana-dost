@@ -8,9 +8,41 @@
     <link rel="stylesheet" href="css/chatbot.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Increased Chatbot Interface Size */
+        .chatbot-interface .chatbot-container {
+            width: 500px;  /* Increased from original */
+            height: 650px; /* Increased from original */
+        }
+        
+        .chat-messages {
+            height: 450px; /* Larger message area */
+        }
+        
+        /* Adjust other elements proportionally */
+        .chat-header {
+            padding: 20px;
+        }
+        
+        .message-text {
+            padding: 15px 20px;
+            font-size: 15px;
+        }
+        
+        .chat-input input {
+            padding: 15px;
+            font-size: 15px;
+        }
+        
+        .send-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation (Kept Original) -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
@@ -34,7 +66,7 @@
         </div>
     </nav>
 
-    <!-- Chatbot Interface -->
+    <!-- Chatbot Interface (Increased Size) -->
     <section class="chatbot-interface">
         <div class="container">
             <div class="chatbot-container">
@@ -67,52 +99,33 @@
 
                 <!-- Chat Messages -->
                 <div class="chat-messages" id="chatMessages">
-                    <div class="message bot-message">
-                        <div class="message-avatar">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="message-content">
-                            <div class="message-text">
-                                Hello! I'm your AI assistant for government schemes. I can help you with:
-                                <ul>
-                                    <li>Finding relevant schemes based on your profile</li>
-                                    <li>Explaining eligibility criteria</li>
-                                    <li>Providing application guidance</li>
-                                    <li>Answering questions about benefits</li>
-                                </ul>
-                                Ask me anything about government schemes or type one of the quick options below!
-                            </div>
-                            <div class="message-time">Just now</div>
-                        </div>
-                    </div>
+                    <!-- Messages will appear here -->
                 </div>
 
                 <!-- Quick Actions -->
                 <div class="quick-actions" id="quickActions">
-                    <div class="quick-action-item" onclick="sendQuickMessage('What schemes are available for farmers?')">
+                    <div class="quick-action-item" data-query="farmer" onclick="sendQuickMessage('What schemes are available for farmers?')">
                         <i class="fas fa-seedling"></i>
                         <span>Farmer Schemes</span>
                     </div>
-                    <div class="quick-action-item" onclick="sendQuickMessage('Show me health schemes')">
+                    <div class="quick-action-item" data-query="health" onclick="sendQuickMessage('Show me health schemes')">
                         <i class="fas fa-heartbeat"></i>
                         <span>Health Schemes</span>
                     </div>
-                    <div class="quick-action-item" onclick="sendQuickMessage('What is PM-KISAN?')">
+                    <div class="quick-action-item" data-query="pm-kisan" onclick="sendQuickMessage('What is PM-KISAN?')">
                         <i class="fas fa-info-circle"></i>
                         <span>PM-KISAN Info</span>
                     </div>
-                    <div class="quick-action-item" onclick="sendQuickMessage('Education scholarships for students')">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Education</span>
-                    </div>
-                    <div class="quick-action-item" onclick="sendQuickMessage('Housing schemes for women')">
+
+                    <div class="quick-action-item" data-query="housing" onclick="sendQuickMessage('Housing schemes for women')">
                         <i class="fas fa-home"></i>
                         <span>Housing</span>
                     </div>
-                    <div class="quick-action-item" onclick="sendQuickMessage('Digital India schemes')">
+                    <div class="quick-action-item" data-query="education" onclick="sendQuickMessage('Digital India schemes')">
                         <i class="fas fa-laptop"></i>
-                        <span>Digital India</span>
+                        <span>Education</span>
                     </div>
+                    
                 </div>
 
                 <!-- Chat Input -->
@@ -128,15 +141,12 @@
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
-                    <div class="input-suggestions" id="inputSuggestions">
-                        <!-- Suggestions will appear here -->
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Chatbot Features -->
+    <!-- Chatbot Features (Kept Original) -->
     <section class="chatbot-features">
         <div class="container">
             <h2 class="section-title">AI Assistant Features</h2>
@@ -173,7 +183,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    
+    <!-- Footer (Kept Original) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">

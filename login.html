@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Yojana Dost</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="Yojana Dost">
+                <span>Yojana Dost</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="schemes.html" class="nav-link">Schemes</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="my-profile.html" class="nav-link">Profile</a>
+                <a href="about.html" class="nav-link">About</a>
+                <button class="search-toggle" onclick="toggleGlobalSearch()" title="Search Schemes">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="register.html" class="btn btn-outline">Register</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-card">
+                <h2>Login to your Account</h2>
+                <p class="auth-subtitle">Access all government schemes and services</p>
+                
+                <form class="auth-form" onsubmit="handleLogin(event)">
+                    <!-- Changed from Email Address to Mobile Number -->
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+
+                    <!-- Login with OTP Option -->
+                    <button type="button" class="btn btn-outline btn-block" onclick="showOtpLogin()">Login with OTP</button>
+                    
+                    <div class="auth-divider">
+                        <span>or login with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="btn btn-outline btn-social">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="btn btn-outline btn-social">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="auth-footer">
+                        Don't have an account? <a href="register.html">Register here</a>
+                    </p>
+                </form>
+
+                <!-- OTP Login Form (Initially Hidden) -->
+                <form class="auth-form" id="otp-login-form" style="display: none;" onsubmit="handleOtpLogin(event)">
+                    <h2>Login with OTP</h2>
+                    <p class="auth-subtitle">Enter your mobile number to receive OTP</p>
+                    
+                    <div class="form-group">
+                        <label for="otpMobile">Mobile Number</label>
+                        <input type="tel" id="otpMobile" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary btn-block" onclick="sendOtp()">Send OTP</button>
+                    
+                    <div class="form-group" id="otp-input-group" style="display: none;">
+                        <label for="otpCode">Enter OTP</label>
+                        <input type="text" id="otpCode" placeholder="Enter 6-digit OTP" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" id="verify-otp-button" style="display: none;">Verify OTP & Login</button>
+
+                    <p class="auth-footer">
+                        <a href="#" onclick="hideOtpLogin()">Back to Password Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Yojana Dost</h3>
+                    <p>Your trusted partner for accessing government schemes and digital services.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="schemes.html">All Schemes</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="state-schemes.html">State Schemes</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="grievance.html">Grievance</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yojana Dost. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/global.js"></script>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const mobile = document.getElementById('mobile').value;
+            const password = document.getElementById('password').value;
+            
+            // Add your login logic here (e.g., API call)
+            console.log('Password Login attempt with:', mobile, password);
+            
+            // For demo purposes, redirect to profile after "login"
+            alert('Login successful (demo)!');
+            window.location.href = 'my-profile.html';
+        }
+
+        function showOtpLogin() {
+            document.querySelector('.auth-form').style.display = 'none';
+            document.getElementById('otp-login-form').style.display = 'block';
+        }
+
+        function hideOtpLogin() {
+            document.querySelector('.auth-form').style.display = 'block';
+            document.getElementById('otp-login-form').style.display = 'none';
+            // Reset OTP form fields and hide OTP input
+            document.getElementById('otpMobile').value = '';
+            document.getElementById('otpCode').value = '';
+            document.getElementById('otp-input-group').style.display = 'none';
+            document.getElementById('verify-otp-button').style.display = 'none';
+        }
+
+        function sendOtp() {
+            const otpMobile = document.getElementById('otpMobile').value;
+            if (!otpMobile) {
+                alert('Please enter your mobile number.');
+                return;
+            }
+            // Simulate sending OTP
+            console.log('Sending OTP to:', otpMobile);
+            alert('OTP sent to ' + otpMobile + ' (demo)!');
+            
+            // Show OTP input field and verify button
+            document.getElementById('otp-input-group').style.display = 'block';
+            document.getElementById('verify-otp-button').style.display = 'block';
+        }
+
+        function handleOtpLogin(event) {
+            event.preventDefault();
+            const otpMobile = document.getElementById('otpMobile').value;
+            const otpCode = document.getElementById('otpCode').value;
+
+            if (!otpMobile || !otpCode) {
+                alert('Please enter both mobile number and OTP.');
+                return;
+            }
+
+            // Add your OTP verification logic here (e.g., API call)
+            console.log('OTP Login attempt with:', otpMobile, 'OTP:', otpCode);
+
+            // Simulate OTP verification
+            if (otpCode === '123456') { // Example OTP
+                alert('OTP verified and Login successful (demo)!');
+                window.location.href = 'my-profile.html';
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
