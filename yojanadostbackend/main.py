@@ -13,7 +13,7 @@ app = FastAPI()
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-cd
+
 
  
 # ✅ Load OpenAI API key (recommended to use environment variable)
