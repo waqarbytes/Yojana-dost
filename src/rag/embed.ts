@@ -78,12 +78,13 @@ export async function embedTexts(
   texts: string[],
   model = "text-embedding-3-small"
 ): Promise<EmbeddingResult> {
-  const client = getOpenAIClient();
+  const apiKey = process.env.OPENAI_API_KEY || process.env.NVIDIA_API_KEY || "";
+  const isRealOpenAI = apiKey.startsWith("sk-") && !process.env.OPENAI_BASE_URL?.includes("nvidia.com");
+  const client = isRealOpenAI ? getOpenAIClient() : null;
 
-  if (!client || !process.env.OPENAI_API_KEY) {
-    Logger.debug("OPENAI_API_KEY not found. Using deterministic offline embeddings.");
+  if (!client) {
+    Logger.debug("Using deterministic offline embeddings (1536-dim).");
     const embeddings = texts.map((t) => generateDeterministicOfflineEmbedding(t, 1536));
-    // Estimate tokens (approx 4 chars per token)
     const estimatedTokens = texts.reduce((acc, t) => acc + Math.ceil(t.length / 4), 0);
     return {
       embeddings,
@@ -108,9 +109,15 @@ export async function embedTexts(
       model,
     };
   } catch (error) {
-    Logger.error("Failed to generate OpenAI embeddings", {
+    Logger.warn("OpenAI embeddings failed, falling back to deterministic embeddings", {
       error: error instanceof Error ? error.message : String(error),
     });
-    throw error;
+    const embeddings = texts.map((t) => generateDeterministicOfflineEmbedding(t, 1536));
+    const estimatedTokens = texts.reduce((acc, t) => acc + Math.ceil(t.length / 4), 0);
+    return {
+      embeddings,
+      tokensUsed: estimatedTokens,
+      model: `${model}-fallback-simulated`,
+    };
   }
 }

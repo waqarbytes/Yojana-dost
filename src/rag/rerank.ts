@@ -125,9 +125,11 @@ export async function rerankChunks(
   }
 
   const client = getOpenAIClient();
+  const apiKey = process.env.OPENAI_API_KEY || process.env.NVIDIA_API_KEY || "";
+  const hasKey = Boolean(apiKey);
 
-  if (!client || !process.env.OPENAI_API_KEY) {
-    Logger.debug("OPENAI_API_KEY not found. Using heuristic cross-encoder reranker.");
+  if (!client || !hasKey) {
+    Logger.debug("LLM API key not found. Using heuristic cross-encoder reranker.");
     const reranked = heuristicRerank(query, candidates, topK);
     return {
       topChunks: reranked.map((c) => c.chunk),
@@ -137,6 +139,8 @@ export async function rerankChunks(
       model: "heuristic-fallback",
     };
   }
+
+  const effectiveModel = process.env.RERANK_MODEL || (apiKey.startsWith("nvapi-") ? "meta/llama-3.2-11b-vision-instruct" : model);
 
   const formattedCandidates = candidates.map((c, idx) => ({
     id: idx,
@@ -155,16 +159,16 @@ ${JSON.stringify(formattedCandidates, null, 2)}
 
 Return ONLY a JSON array with objects in this format:
 [
-  {"id": 0, "score": 9.5},
-  ...
+  {"id": 0, "score": 9.5}
 ]`;
 
   try {
+    const isNvidia = apiKey.startsWith("nvapi-") || process.env.OPENAI_BASE_URL?.includes("nvidia.com");
     const response = await client.chat.completions.create({
-      model,
+      model: effectiveModel,
       messages: [{ role: "user", content: prompt }],
       temperature: 0.0,
-      response_format: { type: "json_object" },
+      ...(isNvidia ? {} : { response_format: { type: "json_object" } }),
     });
 
     const content = response.choices[0]?.message.content ?? "{}";

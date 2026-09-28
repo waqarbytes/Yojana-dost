@@ -233,7 +233,9 @@ export async function generateRAGAnswer(
 
   const tGen = performance.now();
 
-  if (!client || !process.env.OPENAI_API_KEY || tier === "degraded_local") {
+  const hasApiKey = Boolean(process.env.OPENAI_API_KEY || process.env.NVIDIA_API_KEY);
+
+  if (!client || !hasApiKey || tier === "degraded_local") {
     // Offline deterministic / budget-exhausted local simulator
     const qLower = sanitizedQuery.toLowerCase();
     const isGuardrailOrUnanswerable =
@@ -304,10 +306,20 @@ export async function generateRAGAnswer(
       promptTokens = completion.usage?.prompt_tokens ?? 0;
       completionTokens = completion.usage?.completion_tokens ?? 0;
     } catch (err) {
-      Logger.error("OpenAI generation failed", {
+      Logger.error("LLM generation failed, falling back to grounded records", {
         error: err instanceof Error ? err.message : String(err),
       });
-      answer = "An error occurred while generating the response. Please check back shortly.";
+      if (isRagEnabled && rerankedChunks.length > 0) {
+        const distinctSchemes = Array.from(new Set(rerankedChunks.map((c) => c.scheme_id)));
+        const citationsStr = distinctSchemes.map((id) => `[${id}]`).join(" ");
+        const body = rerankedChunks.map((c) => `**${c.scheme_name}** (${c.section}) [${c.scheme_id}]:\n${c.content}`).join("\n\n");
+        const officialLinks = Array.from(
+          new Set(rerankedChunks.map((c) => `${c.scheme_name}: ${c.metadata.official_url} [${c.scheme_id}]`))
+        ).join("\n");
+        answer = `Based on verified government scheme records ${citationsStr}:\n\n${body}\n\n**Official Portals:**\n${officialLinks}`;
+      } else {
+        answer = "I do not have sufficient verified scheme information in my current knowledge base to answer this completely.";
+      }
     }
   }
 
@@ -477,7 +489,9 @@ export async function* generateRAGStream(
   let fullAnswer = "";
   const tGen = performance.now();
 
-  if (!client || !process.env.OPENAI_API_KEY || tier === "degraded_local") {
+  const hasApiKey = Boolean(process.env.OPENAI_API_KEY || process.env.NVIDIA_API_KEY);
+
+  if (!client || !hasApiKey || tier === "degraded_local") {
     const mockAns = isRagEnabled && rerankedChunks.length > 0
       ? `Based on verified scheme records for **${rerankedChunks[0]?.scheme_name}** [${rerankedChunks[0]?.scheme_id}]:\n\n${rerankedChunks[0]?.content}\n\nOfficial Portal: ${rerankedChunks[0]?.metadata.official_url} [${rerankedChunks[0]?.scheme_id}].`
       : `Information regarding "${sanitizedQuery}".`;
@@ -508,11 +522,17 @@ export async function* generateRAGStream(
         }
       }
     } catch (err) {
-      yield {
-        type: "error",
+      Logger.warn("LLM streaming generation failed, falling back to grounded scheme records", {
         error: err instanceof Error ? err.message : String(err),
-      };
-      return;
+      });
+      const fallbackAns = isRagEnabled && rerankedChunks.length > 0
+        ? `Based on verified scheme records for **${rerankedChunks[0]?.scheme_name}** [${rerankedChunks[0]?.scheme_id}]:\n\n${rerankedChunks[0]?.content}\n\nOfficial Portal: ${rerankedChunks[0]?.metadata.official_url} [${rerankedChunks[0]?.scheme_id}].`
+        : `Information regarding "${sanitizedQuery}".`;
+      const tokens = fallbackAns.split(" ");
+      for (const tok of tokens) {
+        fullAnswer += tok + " ";
+        yield { type: "token", token: tok + " " };
+      }
     }
   }
 
