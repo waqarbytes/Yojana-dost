@@ -1,3 +1,5 @@
-import app from "../dist/app.js";
+import app from "../dist/expressApp.js";
 
-export default app;
+export default function handler(req, res) {
+  return app(req, res);
+}

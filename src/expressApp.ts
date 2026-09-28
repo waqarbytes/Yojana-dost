@@ -66,7 +66,7 @@ const app = createExpressApp();
 export default app;
 
 // If run directly via node/tsx
-if (process.argv[1] && (process.argv[1].endsWith("app.ts") || process.argv[1].endsWith("app.js"))) {
+if (process.argv[1] && (process.argv[1].endsWith("expressApp.ts") || process.argv[1].endsWith("expressApp.js"))) {
   const PORT = process.env.PORT || 3001;
   app.listen(PORT, () => {
     Logger.info(`Yojana Dost RAG backend listening on port ${PORT}`);
