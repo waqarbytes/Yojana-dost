@@ -24,6 +24,7 @@ export function createExpressApp(): Application {
   // Serve static UI assets (index.html, chatbot.html, etc.)
   app.use(express.static(publicDir));
   app.use(express.static(process.cwd()));
+  app.use(express.static(resolve(currentDir, "../dist")));
 
   // Explicit Root route
   app.get("/", (_req, res) => {
@@ -32,6 +33,7 @@ export function createExpressApp(): Application {
       resolve(publicDir, "index.html"),
       resolve(currentDir, "../index.html"),
       resolve(currentDir, "../../index.html"),
+      resolve(process.cwd(), "dist/index.html"),
     ];
     const foundPath = possibleIndexPaths.find((p) => existsSync(p));
     if (foundPath) {
@@ -66,7 +68,7 @@ const app = createExpressApp();
 export default app;
 
 // If run directly via node/tsx
-if (process.argv[1] && (process.argv[1].endsWith("expressApp.ts") || process.argv[1].endsWith("expressApp.js"))) {
+if (process.argv[1] && (process.argv[1].endsWith("app.ts") || process.argv[1].endsWith("app.js"))) {
   const PORT = process.env.PORT || 3001;
   app.listen(PORT, () => {
     Logger.info(`Yojana Dost RAG backend listening on port ${PORT}`);
