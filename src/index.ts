@@ -6,7 +6,7 @@
  */
 
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { createIndiaSchemesServer } from "./server.js";
+import { createIndiaSchemesServer } from "./mcpServer.js";
 import { Logger } from "./lib/logger.js";
 import { globalRateLimiter } from "./lib/rateLimiter.js";
 
