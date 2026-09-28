@@ -9,6 +9,7 @@ import { chatRouter } from "./routes/chat.js";
 import { metricsRouter } from "./routes/metrics.js";
 import { Logger } from "./lib/logger.js";
 import { resolve, dirname } from "node:path";
+import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
@@ -22,6 +23,23 @@ export function createExpressApp(): Application {
 
   // Serve static UI assets (index.html, chatbot.html, etc.)
   app.use(express.static(publicDir));
+  app.use(express.static(process.cwd()));
+
+  // Explicit Root route
+  app.get("/", (_req, res) => {
+    const possibleIndexPaths = [
+      resolve(process.cwd(), "index.html"),
+      resolve(publicDir, "index.html"),
+      resolve(currentDir, "../index.html"),
+      resolve(currentDir, "../../index.html"),
+    ];
+    const foundPath = possibleIndexPaths.find((p) => existsSync(p));
+    if (foundPath) {
+      res.sendFile(foundPath);
+    } else {
+      res.status(200).send("<!DOCTYPE html><html><head><title>Yojana Dost</title></head><body><h1>Yojana Dost AI Backend</h1><p><a href='/api'>API Info</a> | <a href='/api/chat/health'>Health Check</a></p></body></html>");
+    }
+  });
 
   // Mount chat and metrics API routes
   app.use("/api/chat", chatRouter);
