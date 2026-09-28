@@ -11,6 +11,7 @@
     "build": "tsc && npm run build:client && node scripts/build-dist.js",
     "start": "node dist/index.js",
     "start:server": "tsx src/server.ts",
+    "start:prod": "node dist/server.js",
     "dev": "tsx src/index.ts",
     "ingest": "tsx scripts/ingest.ts",
     "eval:generate": "tsx eval/generate_queries.ts",

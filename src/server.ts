@@ -70,7 +70,7 @@ export default app;
 // If run directly via node/tsx
 if (process.argv[1] && (process.argv[1].endsWith("server.ts") || process.argv[1].endsWith("server.js") || process.argv[1].endsWith("app.ts") || process.argv[1].endsWith("app.js"))) {
   const PORT = process.env.PORT || 3001;
-  app.listen(PORT, () => {
+  app.listen(Number(PORT), "0.0.0.0", () => {
     Logger.info(`Yojana Dost RAG backend listening on port ${PORT}`);
   });
 }
