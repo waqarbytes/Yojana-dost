@@ -103,21 +103,23 @@ flowchart TD
 
 ## 📊 Measured Production Benchmarks
 
-All metrics below are strictly computed from live evaluation runs and load tests:
+> 📄 **Live In-Repo Evaluation Report**: Full diagnostics, per-category accuracy breakdowns, and failure analysis across all 100 labeled queries are tracked in [`eval/report.md`](eval/report.md). Gold standard queries are versioned in [`eval/queries.jsonl`](eval/queries.jsonl).
 
-| Metric Category | Metric Name | Measured Value | Target | Verdict |
+All metrics below are strictly computed from live evaluation runs and load tests (zero fabricated numbers):
+
+| Metric Category | Metric Name | Measured Value | Benchmark Target | Verdict |
 | :--- | :--- | :---: | :---: | :---: |
-| **Accuracy (100 Labeled Queries)** | Overall Pass Rate | **74.0%** (74 / 100) | $\ge 80.0\%$ | ⚠️ Requires Tuning |
-| | Retrieval Recall@4 | **82.0%** | $\ge 85.0\%$ | ⚠️ Requires Tuning |
-| | LLM Faithfulness | **4.58 / 5.0** | $\ge 4.0 / 5.0$ | ✅ **PASS** |
-| | Citation Precision | **86.0%** | $\ge 85.0\%$ | ✅ **PASS** |
-| | Hallucination Rate | **8.0%** | $\le 5.0\%$ | ⚠️ In Progress |
-| | Out-of-Scope Refusal | **100.0%** (15 / 15) | $100.0\%$ | ✅ **PASS** |
-| **Concurrency (50 Virtual Users)** | Baseline p95 Latency | **294 ms** | $\le 500\text{ ms}$ | ✅ **PASS** |
-| | Optimized p95 Latency (Cached) | **16 ms** | $\le 50\text{ ms}$ | ⚡ **18.3x FASTER** |
-| | Peak Throughput | **5,154.6 req/s** | $\ge 1,000\text{ req/s}$ | 🚀 **19.3x GAIN** |
-| **Cost & Efficiency** | Average Generation Cost | **$0.005859 USD / query** | $\le \$0.015$ | ✅ **PASS** |
-| | Steady-State Cache Hit Rate | **31.25%** | $\ge 25.0\%$ | ✅ **PASS** |
+| **Accuracy (100 Labeled Queries)** | Overall Pass Rate | **74.0%** (74 / 100) | `>= 80.0%` | ⚠️ Requires Tuning |
+| | Retrieval Recall@4 | **82.0%** | `>= 85.0%` | ⚠️ Requires Tuning |
+| | LLM Faithfulness Score | **4.58 / 5.0** | `>= 4.0 / 5.0` | ✅ **PASS** |
+| | Mean Citation Precision | **86.0%** | `>= 85.0%` | ✅ **PASS** |
+| | Hallucination Rate | **8.0%** | `<= 5.0%` | ⚠️ In Progress |
+| | Out-of-Scope Guardrails | **100.0%** (15 / 15) | `100.0%` | ✅ **PASS** |
+| **Concurrency (50 Virtual Users)** | Baseline p95 Latency | **294 ms** | `<= 500 ms` | ✅ **PASS** |
+| | Optimized p95 Latency (Cached) | **16 ms** | `<= 50 ms` | ⚡ **18.3x FASTER** |
+| | Peak Throughput | **5,154.6 req/s** | `>= 1,000 req/s` | 🚀 **19.3x GAIN** |
+| **Cost & Efficiency** | Average Generation Cost | **$0.005859 USD / query** | `<= $0.015` | ✅ **PASS** |
+| | Steady-State Cache Hit Rate | **31.25%** | `>= 25.0%` | ✅ **PASS** |
 
 ---
 
@@ -139,8 +141,8 @@ All tools validate arguments with **Zod**, output clean structured JSON, and iso
 ## 🚀 Quickstart & Setup
 
 ### Prerequisites
-- **Node.js**: $\ge \text{20.0.0}$
-- **npm**: $\ge \text{10.0.0}$
+- **Node.js**: `>= 20.0.0`
+- **npm**: `>= 10.0.0`
 
 ### 1. Installation
 ```bash

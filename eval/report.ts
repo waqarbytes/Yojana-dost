@@ -43,17 +43,17 @@ All metrics below are **strictly computed from live benchmark evaluation transcr
 
 | Metric | Measured Value | Benchmark Target | Verdict |
 | :--- | :---: | :---: | :---: |
-| **Pass Rate** | **${run.pass_rate_percentage}%** (${run.passed_queries}/${run.total_queries}) | \`>= 80.0%\` | ${run.pass_rate_percentage >= 80 ? "✅ PASS" : "❌ FAIL"} |
-| **Retrieval Recall@4** | **${run.metrics.retrieval_recall_at_4}%** | \`>= 85.0%\` | ${run.metrics.retrieval_recall_at_4 >= 85 ? "✅ PASS" : "❌ FAIL"} |
-| **Mean Citation Precision** | **${(run.metrics.mean_citation_precision * 100).toFixed(1)}%** | \`>= 85.0%\` | ${run.metrics.mean_citation_precision >= 0.85 ? "✅ PASS" : "⚠️ WARN"} |
-| **Mean Citation Recall** | **${(run.metrics.mean_citation_recall * 100).toFixed(1)}%** | \`>= 80.0%\` | ${run.metrics.mean_citation_recall >= 0.80 ? "✅ PASS" : "⚠️ WARN"} |
-| **LLM Faithfulness Score** | **${run.metrics.mean_faithfulness_score} / 5.0** | \`>= 4.0 / 5.0\` | ${run.metrics.mean_faithfulness_score >= 4.0 ? "✅ PASS" : "❌ FAIL"} |
-| **LLM Relevance Score** | **${run.metrics.mean_relevance_score} / 5.0** | \`>= 4.0 / 5.0\` | ${run.metrics.mean_relevance_score >= 4.0 ? "✅ PASS" : "❌ FAIL"} |
-| **Overall Judge Score** | **${run.metrics.mean_overall_judge_score} / 5.0** | \`>= 3.8 / 5.0\` | ${run.metrics.mean_overall_judge_score >= 3.8 ? "✅ PASS" : "❌ FAIL"} |
-| **Hallucination Rate** | **${run.metrics.hallucination_rate_percentage}%** | \`<= 5.0%\` | ${run.metrics.hallucination_rate_percentage <= 5 ? "✅ PASS" : "❌ FAIL"} |
-| **Mean Latency (E2E)** | **${run.metrics.mean_latency_ms} ms** | \`<= 2000 ms\` | ${run.metrics.mean_latency_ms <= 2000 ? "✅ PASS" : "⚠️ WARN"} |
+| **Pass Rate** | **${run.pass_rate_percentage}%** (${run.passed_queries}/${run.total_queries}) | \`≥ 80.0%\` | ${run.pass_rate_percentage >= 80 ? "✅ PASS" : "❌ FAIL"} |
+| **Retrieval Recall@4** | **${run.metrics.retrieval_recall_at_4}%** | \`≥ 85.0%\` | ${run.metrics.retrieval_recall_at_4 >= 85 ? "✅ PASS" : "❌ FAIL"} |
+| **Mean Citation Precision** | **${(run.metrics.mean_citation_precision * 100).toFixed(1)}%** | \`≥ 85.0%\` | ${run.metrics.mean_citation_precision >= 0.85 ? "✅ PASS" : "⚠️ WARN"} |
+| **Mean Citation Recall** | **${(run.metrics.mean_citation_recall * 100).toFixed(1)}%** | \`≥ 80.0%\` | ${run.metrics.mean_citation_recall >= 0.80 ? "✅ PASS" : "⚠️ WARN"} |
+| **LLM Faithfulness Score** | **${run.metrics.mean_faithfulness_score} / 5.0** | \`≥ 4.0 / 5.0\` | ${run.metrics.mean_faithfulness_score >= 4.0 ? "✅ PASS" : "❌ FAIL"} |
+| **LLM Relevance Score** | **${run.metrics.mean_relevance_score} / 5.0** | \`≥ 4.0 / 5.0\` | ${run.metrics.mean_relevance_score >= 4.0 ? "✅ PASS" : "❌ FAIL"} |
+| **Overall Judge Score** | **${run.metrics.mean_overall_judge_score} / 5.0** | \`≥ 3.8 / 5.0\` | ${run.metrics.mean_overall_judge_score >= 3.8 ? "✅ PASS" : "❌ FAIL"} |
+| **Hallucination Rate** | **${run.metrics.hallucination_rate_percentage}%** | \`≤ 5.0%\` | ${run.metrics.hallucination_rate_percentage <= 5 ? "✅ PASS" : "❌ FAIL"} |
+| **Mean Latency (E2E)** | **${run.metrics.mean_latency_ms} ms** | \`≤ 2000 ms\` | ${run.metrics.mean_latency_ms <= 2000 ? "✅ PASS" : "⚠️ WARN"} |
 | **Total Evaluation Cost** | **$${run.metrics.total_cost_usd} USD** | N/A | ℹ️ INFO |
-| **Average Cost / Query** | **$${run.metrics.mean_cost_per_query_usd} USD** | \`<= $0.015\` | ✅ PASS |
+| **Average Cost / Query** | **$${run.metrics.mean_cost_per_query_usd} USD** | \`≤ $0.015\` | ✅ PASS |
 
 ---
 

@@ -13,17 +13,17 @@ All metrics below are **strictly computed from live benchmark evaluation transcr
 
 | Metric | Measured Value | Benchmark Target | Verdict |
 | :--- | :---: | :---: | :---: |
-| **Pass Rate** | **74%** (74/100) | `>= 80.0%` | ❌ FAIL |
-| **Retrieval Recall@4** | **82%** | `>= 85.0%` | ❌ FAIL |
-| **Mean Citation Precision** | **86.0%** | `>= 85.0%` | ✅ PASS |
-| **Mean Citation Recall** | **73.0%** | `>= 80.0%` | ⚠️ WARN |
-| **LLM Faithfulness Score** | **4.58 / 5.0** | `>= 4.0 / 5.0` | ✅ PASS |
-| **LLM Relevance Score** | **3.94 / 5.0** | `>= 4.0 / 5.0` | ❌ FAIL |
-| **Overall Judge Score** | **4.26 / 5.0** | `>= 3.8 / 5.0` | ✅ PASS |
-| **Hallucination Rate** | **8%** | `<= 5.0%` | ❌ FAIL |
-| **Mean Latency (E2E)** | **3 ms** | `<= 2000 ms` | ✅ PASS |
+| **Pass Rate** | **74%** (74/100) | `≥ 80.0%` | ❌ FAIL |
+| **Retrieval Recall@4** | **82%** | `≥ 85.0%` | ❌ FAIL |
+| **Mean Citation Precision** | **86.0%** | `≥ 85.0%` | ✅ PASS |
+| **Mean Citation Recall** | **73.0%** | `≥ 80.0%` | ⚠️ WARN |
+| **LLM Faithfulness Score** | **4.58 / 5.0** | `≥ 4.0 / 5.0` | ✅ PASS |
+| **LLM Relevance Score** | **3.94 / 5.0** | `≥ 4.0 / 5.0` | ❌ FAIL |
+| **Overall Judge Score** | **4.26 / 5.0** | `≥ 3.8 / 5.0` | ✅ PASS |
+| **Hallucination Rate** | **8%** | `≤ 5.0%` | ❌ FAIL |
+| **Mean Latency (E2E)** | **3 ms** | `≤ 2000 ms` | ✅ PASS |
 | **Total Evaluation Cost** | **$0.585915 USD** | N/A | ℹ️ INFO |
-| **Average Cost / Query** | **$0.005859 USD** | `<= $0.015` | ✅ PASS |
+| **Average Cost / Query** | **$0.005859 USD** | `≤ $0.015` | ✅ PASS |
 
 ---
 
