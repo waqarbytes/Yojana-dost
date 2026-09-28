@@ -3,7 +3,7 @@
  * Supports batching, caching, and deterministic offline mock fallback for unit tests.
  */
 
-import OpenAI from "openai";
+import { OpenAI } from "openai";
 import { Logger } from "../lib/logger.js";
 
 let openAIClient: OpenAI | null = null;

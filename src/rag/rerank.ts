@@ -4,7 +4,7 @@
  * to rank and filter down to the most relevant top 4 chunks.
  */
 
-import OpenAI from "openai";
+import { OpenAI } from "openai";
 import type { SchemeChunk, ScoredChunk } from "./types.js";
 import { Logger } from "../lib/logger.js";
 

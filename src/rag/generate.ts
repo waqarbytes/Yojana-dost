@@ -3,7 +3,7 @@
  * Semantic Caching (0.92 cosine similarity threshold), Cost Guardrails, and Observability.
  */
 
-import OpenAI from "openai";
+import { OpenAI } from "openai";
 import { performance } from "node:perf_hooks";
 import { hybridRetrieve } from "./retrieve.js";
 import { rerankChunks } from "./rerank.js";

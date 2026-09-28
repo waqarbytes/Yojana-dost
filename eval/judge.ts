@@ -4,7 +4,7 @@
  * using a strict multi-dimensional rubric (Faithfulness, Relevance, Hallucination Check).
  */
 
-import OpenAI from "openai";
+import { OpenAI } from "openai";
 import type { EvalQuery, JudgeEvaluation } from "./types.js";
 import type { SchemeChunk } from "../src/rag/types.js";
 import { Logger } from "../src/lib/logger.js";
