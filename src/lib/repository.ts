@@ -26,12 +26,15 @@ export class JsonSchemeRepository implements ISchemeRepository {
     } else {
       const currentDir = dirname(fileURLToPath(import.meta.url));
       const candidatePaths = [
+        process.env.SCHEMES_FILE_PATH ?? "",
         resolve(currentDir, "../data/schemes.json"),
+        resolve(currentDir, "./data/schemes.json"),
         resolve(currentDir, "../../src/data/schemes.json"),
         resolve(currentDir, "../../data/schemes.json"),
         resolve(process.cwd(), "src/data/schemes.json"),
         resolve(process.cwd(), "data/schemes.json"),
-      ];
+        resolve(process.cwd(), "dist/data/schemes.json"),
+      ].filter(Boolean);
 
       const foundPath = candidatePaths.find((p) => existsSync(p));
       this.dataFilePath = foundPath ?? resolve(currentDir, "../data/schemes.json");

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Production-grade MCP server for Indian Government Welfare Schemes (Yojana Dost)",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/app.js",
   "bin": {
     "india-schemes-mcp": "./dist/index.js"
   },
