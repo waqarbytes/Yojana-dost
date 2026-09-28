@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "cleanUrls": true,
   "functions": {
     "api/index.js": {
       "includeFiles": "src/data/**,dist/data/**,data/**"

@@ -99,7 +99,7 @@ export async function embedTexts(
       encoding_format: "float",
     });
 
-    const embeddings = response.data.map((item) => item.embedding);
+    const embeddings = response.data.map((item: { embedding: number[] }) => item.embedding);
     const tokensUsed = response.usage.total_tokens;
 
     return {
