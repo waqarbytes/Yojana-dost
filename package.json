@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build:client": "esbuild src/client/main.tsx --bundle --minify --sourcemap --outfile=js/react-app.js --define:process.env.NODE_ENV=\\\"production\\\"",
-    "build": "tsc && npm run build:client && node -e \"const fs=require('fs'); fs.mkdirSync('dist/data', {recursive:true}); fs.copyFileSync('src/data/schemes.json', 'dist/data/schemes.json');\"",
+    "build": "tsc && npm run build:client && node scripts/build-dist.js",
     "start": "node dist/index.js",
     "start:server": "tsx src/app.ts",
     "dev": "tsx src/index.ts",
