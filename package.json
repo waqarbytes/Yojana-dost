@@ -9,9 +9,10 @@
   "scripts": {
     "build:client": "esbuild src/client/main.tsx --bundle --minify --sourcemap --outfile=js/react-app.js --define:process.env.NODE_ENV=\\\"production\\\"",
     "build": "tsc && npm run build:client && node scripts/build-dist.js",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "start:server": "tsx src/server.ts",
     "start:prod": "node dist/server.js",
+    "start:mcp": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "ingest": "tsx scripts/ingest.ts",
     "eval:generate": "tsx eval/generate_queries.ts",
