@@ -1,5 +1,3 @@
-import { createExpressApp } from "../dist/app.js";
-
-const app = createExpressApp();
+import app from "../dist/app.js";
 
 export default app;
