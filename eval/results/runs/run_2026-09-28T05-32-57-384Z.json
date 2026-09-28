@@ -1,0 +1,4485 @@
+{
+  "run_id": "run_2026-09-28T05-32-57-384Z",
+  "timestamp": "2026-09-28T05:32:57.384Z",
+  "total_queries": 100,
+  "passed_queries": 55,
+  "failed_queries": 45,
+  "pass_rate_percentage": 55,
+  "metrics": {
+    "retrieval_recall_at_4": 64,
+    "mean_citation_precision": 1,
+    "mean_citation_recall": 0.5683,
+    "mean_faithfulness_score": 4.08,
+    "mean_relevance_score": 3.16,
+    "mean_overall_judge_score": 3.71,
+    "hallucination_rate_percentage": 23,
+    "mean_latency_ms": 4,
+    "total_cost_usd": 0.318599,
+    "mean_cost_per_query_usd": 0.003186
+  },
+  "by_query_type": {
+    "factual_lookup": {
+      "count": 25,
+      "pass_rate": 64,
+      "recall_at_4": 72,
+      "mean_judge_score": 3.81
+    },
+    "eligibility_check": {
+      "count": 25,
+      "pass_rate": 68,
+      "recall_at_4": 68,
+      "mean_judge_score": 3.39
+    },
+    "comparison": {
+      "count": 15,
+      "pass_rate": 20,
+      "recall_at_4": 26.67,
+      "mean_judge_score": 3.88
+    },
+    "edge_case": {
+      "count": 15,
+      "pass_rate": 46.67,
+      "recall_at_4": 66.67,
+      "mean_judge_score": 3.55
+    },
+    "near_miss_trap": {
+      "count": 15,
+      "pass_rate": 60,
+      "recall_at_4": 66.67,
+      "mean_judge_score": 4.16
+    },
+    "negative_out_of_scope": {
+      "count": 5,
+      "pass_rate": 60,
+      "recall_at_4": 100,
+      "mean_judge_score": 3.48
+    }
+  },
+  "items": [
+    {
+      "query_id": "eval-001",
+      "query": "How much annual cash assistance is given under PM-KISAN?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-kisan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-kisan",
+        "pm-mudra",
+        "pm-evidya",
+        "pm-jay-ayushman",
+        "pm-awas-yojana-urban",
+        "slum-redevelopment",
+        "abry",
+        "nishtha"
+      ],
+      "reranked_scheme_ids": [
+        "pm-mudra",
+        "pm-evidya",
+        "pm-jay-ayushman",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "pm-mudra"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri MUDRA Yojana (PMMY)** [pm-mudra]:\n\nScheme: Pradhan Mantri MUDRA Yojana (PMMY) (pm-mudra)\nMinistry: Central\nCategory: Business & Employment\nState Scope: All India\nOverview & Objective:\nProvides micro-credit to small and micro enterprises through MUDRA loans under Shishu, Kishore, and Tarun categories.\nKeywords: mudra, loan, startup, micro finance, shishu\n\nFor official details, visit the portal: https://mudra.org.in [pm-mudra].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/4 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 7,
+      "cost_usd": 0.003098,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-kisan] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/4 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-002",
+      "query": "What is the maximum hospital treatment coverage under Ayushman Bharat PM-JAY?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-urban",
+        "abhim",
+        "pm-jay-ayushman",
+        "pm-evidya",
+        "pm-jeevan-jyoti",
+        "pm-mudra",
+        "pm-svanidhi",
+        "pm-mudra-yojana",
+        "pm-ujjwala-yojana",
+        "pmjay"
+      ],
+      "reranked_scheme_ids": [
+        "pmjay",
+        "abhim",
+        "pm-jay-ayushman",
+        "pm-jeevan-jyoti"
+      ],
+      "cited_scheme_ids": [
+        "pmjay"
+      ],
+      "generated_answer": "Based on verified scheme information for **Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY)** [pmjay]:\n\nScheme: Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY) (pmjay)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nEconomically vulnerable families identified through SECC 2011.\n\nFor official details, visit the portal: https://pmjay.gov.in [pmjay].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002713,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-003",
+      "query": "What is the annual premium for Pradhan Mantri Suraksha Bima Yojana (PMSBY)?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "matru-vandana",
+        "pm-awas-yojana-gramin",
+        "pmjay",
+        "pm-ujjwala-yojana",
+        "pm-shri",
+        "pm-suraksha-bima",
+        "pmay-urban",
+        "pm-jeevan-jyoti"
+      ],
+      "reranked_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti",
+        "matru-vandana"
+      ],
+      "cited_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Suraksha Bima Yojana (PMSBY)** [pm-suraksha-bima]:\n\nScheme: Pradhan Mantri Suraksha Bima Yojana (PMSBY) (pm-suraksha-bima)\nMinistry: Ministry of Finance\nCategory: Social Security\nState Scope: All India\nOverview & Objective:\nAccident insurance scheme offering ₹2 lakh accidental death and permanent disability cover for an annual premium of just ₹20.\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-suraksha-bima].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003183,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-004",
+      "query": "What is the annual premium for Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-jeevan-jyoti"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "matru-vandana",
+        "pm-jeevan-jyoti",
+        "fasal-bima",
+        "pm-suraksha-bima",
+        "sukanya-samriddhi-yojana",
+        "pm-shri",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-jeevan-jyoti",
+        "fasal-bima"
+      ],
+      "cited_scheme_ids": [
+        "pm-jeevan-jyoti"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)** [pm-jeevan-jyoti]:\n\nScheme: Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) (pm-jeevan-jyoti)\nApplication Procedure & Official Links:\nOfficial Portal: https://financialservices.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Visit the bank branch where you have an active savings bank account.\nStep 2: Submit PMJJBY enrollment form with KYC and nominee details.\nStep 3: Enable auto-debit for ₹436 annual premium renewal every May.\nStep 4: Receive policy confirmation certificate from the partnering life insurer.\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-jeevan-jyoti].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 6,
+      "cost_usd": 0.003585,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-005",
+      "query": "Which ministry oversees the PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-svanidhi",
+        "pm-vishwakarma",
+        "pm-kisan",
+        "pmay-urban",
+        "pm-evidya",
+        "pm-egp",
+        "pm-shri",
+        "fasal-bima"
+      ],
+      "reranked_scheme_ids": [
+        "pm-svanidhi",
+        "pm-kisan",
+        "pm-shri"
+      ],
+      "cited_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)** [pm-svanidhi]:\n\nScheme: PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) (pm-svanidhi)\nMinistry: Ministry of Housing and Urban Affairs\nState Scope: All India\nEligibility Criteria:\n1. Must be an active street vendor or hawker in urban/peri-urban areas [Condition: occupation eq \"street vendor\"]\n\nFor official details, visit the portal: https://pmsvanidhi.mohua.gov.in [pm-svanidhi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003113,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-006",
+      "query": "What are the loan limits under the Shishu category of PM MUDRA Yojana?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pmjay",
+        "karnataka-gruha-lakshmi",
+        "pmay-urban",
+        "pm-jay-ayushman",
+        "icds",
+        "pm-suraksha-bima",
+        "pmsvanidhi",
+        "matru-vandana",
+        "ncs"
+      ],
+      "reranked_scheme_ids": [
+        "pmjay",
+        "karnataka-gruha-lakshmi",
+        "pm-jay-ayushman",
+        "icds"
+      ],
+      "cited_scheme_ids": [
+        "pmjay"
+      ],
+      "generated_answer": "Based on verified scheme information for **Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY)** [pmjay]:\n\nScheme: Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY) (pmjay)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmjay.gov.in\nDeadline: 2025-07-08\nProcedure:\nCheck eligibility on the PM-JAY portal or visit nearest hospital/CSC.\nRequired Documents: Aadhaar card, Ration card, Income certificate\n\nFor official details, visit the portal: https://pmjay.gov.in [pmjay].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003268,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-mudra-yojana] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-007",
+      "query": "How much toolkit financial grant is provided under PM Vishwakarma?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "agri-scheme-10",
+        "pm-vishwakarma",
+        "pmay-gramin",
+        "agri-scheme-7",
+        "pm-kisan",
+        "pm-shri",
+        "maharashtra-ladki-bahin",
+        "health-scheme-14"
+      ],
+      "reranked_scheme_ids": [
+        "agri-scheme-10",
+        "agri-scheme-7",
+        "health-scheme-14",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "agri-scheme-10"
+      ],
+      "generated_answer": "Based on verified scheme information for **Agriculture Scheme 10** [agri-scheme-10]:\n\nScheme: Agriculture Scheme 10 (agri-scheme-10)\nMinistry: Central\nBenefits & Financial Support:\nBenefits provided under Agriculture Scheme 10.\n\nFor official details, visit the portal: https://example.gov.in/agriculture-scheme-10 [agri-scheme-10].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.002303,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-vishwakarma] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-008",
+      "query": "What is the monthly stipend given during basic skill training in PM Vishwakarma?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-awas-yojana-gramin",
+        "pm-svanidhi",
+        "pmjay",
+        "slum-redevelopment",
+        "ncs",
+        "pm-shri",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-awas-yojana-gramin",
+        "pmjay"
+      ],
+      "cited_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Vishwakarma Scheme** [pm-vishwakarma]:\n\nScheme: PM Vishwakarma Scheme (pm-vishwakarma)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmvishwakarma.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Visit Common Service Centre (CSC) for Aadhaar biometric authentication.\nStep 2: Select your traditional trade from the 18 recognized craft disciplines.\nStep 3: Submit application for 3-stage verification (Gram Panchayat / ULB -> District -> State).\nStep 4: Attend 5-7 days basic skill training at assigned training center.\nStep 5: Receive ₹15,000 toolkit voucher and access to collateral-free enterprise loan.\n\nFor official details, visit the portal: https://pmvishwakarma.gov.in [pm-vishwakarma].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 8,
+      "cost_usd": 0.003905,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-009",
+      "query": "What is the monthly assistance amount under Karnataka's Gruha Lakshmi scheme?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "retrieved_scheme_ids": [
+        "abry",
+        "karnataka-gruha-lakshmi",
+        "pm-kisan-man-dhan",
+        "agri-scheme-14",
+        "agri-scheme-16",
+        "poshan-abhiyaan",
+        "atal-pension-yojana",
+        "one-stop-centre",
+        "pm-vishwakarma"
+      ],
+      "reranked_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "agri-scheme-14",
+        "agri-scheme-16",
+        "atal-pension-yojana"
+      ],
+      "cited_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "generated_answer": "Based on verified scheme information for **Gruha Lakshmi Scheme (Karnataka)** [karnataka-gruha-lakshmi]:\n\nScheme: Gruha Lakshmi Scheme (Karnataka) (karnataka-gruha-lakshmi)\nMinistry: Department of Women and Child Development, Karnataka\nCategory: Women & Child\nState Scope: Karnataka\nOverview & Objective:\nState guarantee scheme providing monthly financial assistance of ₹2,000 to the woman head of household in Karnataka.\n\nFor official details, visit the portal: https://sevasindhugs.karnataka.gov.in [karnataka-gruha-lakshmi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 3/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.002925,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-010",
+      "query": "What is the monthly payout under Mukhyamantri Majhi Ladki Bahin Yojana in Maharashtra?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "matru-vandana",
+        "nuhf",
+        "pm-awas-yojana-urban",
+        "poshan-abhiyaan",
+        "pm-suraksha-bima",
+        "working-women-hostel",
+        "naps",
+        "maharashtra-ladki-bahin",
+        "abry",
+        "ahf"
+      ],
+      "reranked_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "abry",
+        "matru-vandana",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra)** [maharashtra-ladki-bahin]:\n\nScheme: Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra) (maharashtra-ladki-bahin)\nMinistry: Department of Women and Child Development, Maharashtra\nCategory: Women & Child\nState Scope: Maharashtra\nOverview & Objective:\nFinancial assistance scheme providing ₹1,500 monthly DBT support to eligible women aged 21-65 years in Maharashtra.\n\nFor official details, visit the portal: https://ladakibahin.maharashtra.gov.in [maharashtra-ladki-bahin].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 3/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 9,
+      "cost_usd": 0.003433,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-011",
+      "query": "How much financial aid is provided for house construction under PMAY-Gramin in plains?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-awas-yojana-gramin"
+      ],
+      "retrieved_scheme_ids": [
+        "light-house-projects",
+        "agri-scheme-7",
+        "pm-suraksha-bima",
+        "pm-shri",
+        "pm-awas-yojana-urban",
+        "pm-kisan-man-dhan",
+        "agri-scheme-12",
+        "one-stop-centre",
+        "blc",
+        "pmay-gramin"
+      ],
+      "reranked_scheme_ids": [
+        "blc",
+        "light-house-projects",
+        "pmay-gramin",
+        "pm-shri"
+      ],
+      "cited_scheme_ids": [
+        "blc"
+      ],
+      "generated_answer": "Based on verified scheme information for **Beneficiary Led Construction (BLC)** [blc]:\n\nScheme: Beneficiary Led Construction (BLC) (blc)\nMinistry: Central\nBenefits & Financial Support:\n₹1.5 lakh assistance for house construction/improvement.\n\nFor official details, visit the portal: https://pmaymis.gov.in [blc].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 6,
+      "cost_usd": 0.002428,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-awas-yojana-gramin] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-012",
+      "query": "What is the current interest rate and tax benefit on Sukanya Samriddhi Yojana (SSY)?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "nrml",
+        "pmssy",
+        "sukanya-samriddhi-yojana",
+        "pm-mudra",
+        "sukanya",
+        "abry",
+        "pm-mudra-yojana",
+        "pm-awas-yojana-urban",
+        "maharashtra-ladki-bahin"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "pm-awas-yojana-urban",
+        "sukanya"
+      ],
+      "cited_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana (SSY)** [sukanya-samriddhi-yojana]:\n\nScheme: Sukanya Samriddhi Yojana (SSY) (sukanya-samriddhi-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nHigh interest rate (currently 8.2% p.a.), Section 80C tax deduction up to ₹1.5 lakh, and completely tax-free interest and maturity amount.\n\nFor official details, visit the portal: https://www.indiapost.gov.in [sukanya-samriddhi-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 3/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 14,
+      "cost_usd": 0.002955,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-013",
+      "query": "What are the free bus travel benefits for women in Delhi DTC buses?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "retrieved_scheme_ids": [
+        "fasal-bima",
+        "women-helpline-181",
+        "pm-awas-yojana-gramin",
+        "matru-vandana",
+        "stand-up-india",
+        "swayam",
+        "samagra-shiksha",
+        "delhi-free-bus-pink-pass",
+        "abry",
+        "nrml"
+      ],
+      "reranked_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "swayam",
+        "fasal-bima",
+        "pm-awas-yojana-gramin"
+      ],
+      "cited_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "generated_answer": "Based on verified scheme information for **Delhi Free DTC Bus Travel (Pink Ticket)** [delhi-free-bus-pink-pass]:\n\nScheme: Delhi Free DTC Bus Travel (Pink Ticket) (delhi-free-bus-pink-pass)\nMinistry: Transport Department, Government of NCT of Delhi\nState Scope: Delhi\nEligibility Criteria:\n1. Applicable for all female passengers [Condition: gender eq \"female\"]\n2. Available in Delhi NCT public transit routes [Condition: state in [\"Delhi\",\"All India\"]]\n\nFor official details, visit the portal: https://transport.delhi.gov.in [delhi-free-bus-pink-pass].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 2,
+        "overall_score": 3.5,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.003078,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-014",
+      "query": "What is the guaranteed monthly pension amount under PM Kisan Maan-Dhan Yojana?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-suraksha-bima",
+        "pm-mudra",
+        "matru-vandana",
+        "fasal-bima",
+        "pmay-gramin",
+        "atal-pension-yojana",
+        "pm-awas-yojana-gramin",
+        "sukanya-samriddhi-yojana",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "sukanya-samriddhi-yojana",
+        "pm-suraksha-bima",
+        "atal-pension-yojana"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nMinistry: Ministry of Agriculture and Farmers Welfare\nBenefits & Financial Support:\nAssured monthly pension of ₹3,000 upon reaching 60 years with matching 50% contribution by Central Government.\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00286,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-015",
+      "query": "What is the official website URL for PM Kisan Samman Nidhi registration?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-kisan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-vishwakarma",
+        "matru-vandana",
+        "pm-kisan",
+        "slum-redevelopment",
+        "pm-ujjwala-yojana",
+        "pm-shri",
+        "pm-awas-yojana-gramin",
+        "working-women-hostel",
+        "abhim"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan",
+        "pm-vishwakarma",
+        "pm-shri"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM-KISAN Samman Nidhi** [pm-kisan]:\n\nScheme: PM-KISAN Samman Nidhi (pm-kisan)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nAll small and marginal farmers with cultivable land.\n\nFor official details, visit the portal: https://pmkisan.gov.in [pm-kisan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00248,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-016",
+      "query": "Which ministry runs PM Ujjwala Yojana 2.0 for free LPG gas connections?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-awas-yojana-gramin",
+        "ujjwala",
+        "pmay-gramin",
+        "pm-suraksha-bima",
+        "pm-yuva",
+        "nfm-sc",
+        "pm-ujjwala-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "ujjwala",
+        "pm-mudra-yojana",
+        "pmay-gramin"
+      ],
+      "cited_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Ujjwala Yojana 2.0** [pm-ujjwala-yojana]:\n\nScheme: Pradhan Mantri Ujjwala Yojana 2.0 (pm-ujjwala-yojana)\nMinistry: Ministry of Petroleum and Natural Gas\nBenefits & Financial Support:\nFree LPG connection with zero deposit fee, first LPG refill free of cost, and hotplate (stove) provided free.\n\nFor official details, visit the portal: https://www.pmuy.gov.in [pm-ujjwala-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002735,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-017",
+      "query": "What are the loan tranches available under PM SVANidhi for street vendors?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "retrieved_scheme_ids": [
+        "pmay-urban",
+        "pm-awas-yojana-gramin",
+        "pm-svanidhi",
+        "poshan-abhiyaan",
+        "pm-yasasvi",
+        "pmsvanidhi",
+        "pm-mudra-yojana",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "pm-svanidhi",
+        "pmsvanidhi"
+      ],
+      "cited_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)** [pm-svanidhi]:\n\nScheme: PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) (pm-svanidhi)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmsvanidhi.mohua.gov.in\nDeadline: 2026-12-31\nProcedure:\nStep 1: Check vending status via Certificate of Vending or ULB Letter of Recommendation.\nStep 2: Visit pmsvanidhi.mohua.gov.in or nearest CSC with Aadhaar and mobile number.\nStep 3: Fill application with vending location, bank account details, and preferred lending institution.\nStep 4: Submit application and undergo verification by Urban Local Body.\nStep 5: Loan amount is disbursed directly to applicant bank account.\n\nFor official details, visit the portal: https://pmsvanidhi.mohua.gov.in [pm-svanidhi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/4 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00397,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/4 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-018",
+      "query": "What are the four loan tiers under Pradhan Mantri MUDRA Yojana?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-jeevan-jyoti",
+        "maharashtra-ladki-bahin",
+        "pm-kisan-man-dhan",
+        "pm-mudra",
+        "ujjwala",
+        "matru-vandana",
+        "abry",
+        "atal-pension-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "pm-mudra",
+        "pm-mudra-yojana",
+        "matru-vandana"
+      ],
+      "cited_scheme_ids": [
+        "pm-mudra"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri MUDRA Yojana (PMMY)** [pm-mudra]:\n\nScheme: Pradhan Mantri MUDRA Yojana (PMMY) (pm-mudra)\nMinistry: Central\nCategory: Business & Employment\nState Scope: All India\nOverview & Objective:\nProvides micro-credit to small and micro enterprises through MUDRA loans under Shishu, Kishore, and Tarun categories.\nKeywords: mudra, loan, startup, micro finance, shishu\n\nFor official details, visit the portal: https://mudra.org.in [pm-mudra].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 4/4 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003038,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-019",
+      "query": "What nutritional requirements does PM POSHAN guarantee for primary school students?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-poshan-shakti"
+      ],
+      "retrieved_scheme_ids": [
+        "poshan-shakti",
+        "pm-shri",
+        "udaan",
+        "pm-svanidhi",
+        "pm-mudra-yojana",
+        "poshan-abhiyaan",
+        "pm-yasasvi",
+        "slum-redevelopment"
+      ],
+      "reranked_scheme_ids": [
+        "pm-shri",
+        "poshan-abhiyaan",
+        "poshan-shakti"
+      ],
+      "cited_scheme_ids": [
+        "pm-shri"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM SHRI (PM Schools for Rising India)** [pm-shri]:\n\nScheme: PM SHRI (PM Schools for Rising India) (pm-shri)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nSchools selected based on nominations from state/UT governments.\n\nFor official details, visit the portal: https://pmshri.education.gov.in [pm-shri].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 2,
+        "overall_score": 2.6,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.002585,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-poshan-shakti] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 1/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-020",
+      "query": "What is the maximum entry age for Atal Pension Yojana (APY)?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-urban",
+        "pmjay",
+        "nishtha",
+        "pm-jay-ayushman",
+        "pm-kisan-man-dhan",
+        "pm-mudra-yojana",
+        "atal-pension-yojana",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-kisan-man-dhan",
+        "pmjay"
+      ],
+      "cited_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atal Pension Yojana (APY)** [atal-pension-yojana]:\n\nScheme: Atal Pension Yojana (APY) (atal-pension-yojana)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Minimum entry age is 18 years [Condition: age gte 18]\n2. Maximum entry age is 40 years [Condition: age lte 40]\n\nFor official details, visit the portal: https://www.npscra.nsdl.co.in [atal-pension-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002903,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-021",
+      "query": "What document is issued to verify enrollment in PM-JAY Ayushman Bharat?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-urban",
+        "pm-poshan-shakti",
+        "pm-yuva",
+        "pm-egp",
+        "maharashtra-ladki-bahin",
+        "matru-vandana"
+      ],
+      "reranked_scheme_ids": [
+        "matru-vandana",
+        "pm-yuva",
+        "pm-awas-yojana-gramin",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "matru-vandana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Matru Vandana Yojana (PMMVY)** [matru-vandana]:\n\nScheme: Pradhan Mantri Matru Vandana Yojana (PMMVY) (matru-vandana)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmmvy-cas.nic.in\nDeadline: 2025-07-08\nProcedure:\nApply at Anganwadi Centres or online via [pmmvy-cas.nic.in](https://pmmvy-cas.nic.in).\nRequired Documents: Aadhaar, Mother-child protection card, Bank account, Identity proof\n\nFor official details, visit the portal: https://pmmvy-cas.nic.in [matru-vandana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 4,
+        "overall_score": 3.4,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 2/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.003458,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-jay-ayushman] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 2/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-022",
+      "query": "Where do you submit the Ujjwala 2.0 application for a free gas cylinder?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-suraksha-bima",
+        "arhc",
+        "agri-scheme-6",
+        "agri-scheme-18",
+        "udaan",
+        "agri-scheme-11",
+        "icds",
+        "swayam",
+        "pm-ujjwala-yojana",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "swayam",
+        "pm-awas-yojana-urban",
+        "arhc"
+      ],
+      "cited_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Ujjwala Yojana 2.0** [pm-ujjwala-yojana]:\n\nScheme: Pradhan Mantri Ujjwala Yojana 2.0 (pm-ujjwala-yojana)\nApplication Procedure & Official Links:\nOfficial Portal: https://www.pmuy.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Download Ujjwala 2.0 application form from pmuy.gov.in or obtain from LPG distributor.\nStep 2: Attach Aadhaar, BPL Ration Card, family member list, and bank passbook.\nStep 3: Submit form at nearest Indane, Bharatgas, or HP Gas distributor.\nStep 4: Distributor performs e-KYC and issues gas connection with subsidized stove and cylinder.\n\nFor official details, visit the portal: https://www.pmuy.gov.in [pm-ujjwala-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 4,
+        "overall_score": 4.3,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 4/5 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003883,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-023",
+      "query": "What is the interest subsidy provided on home loans under PMAY-Urban 2.0?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-awas-yojana-urban"
+      ],
+      "retrieved_scheme_ids": [
+        "poshan-abhiyaan",
+        "pm-awas-yojana-gramin",
+        "pm-shri",
+        "slum-redevelopment",
+        "pmay-urban",
+        "clss",
+        "pm-awas-yojana-urban",
+        "karnataka-gruha-lakshmi"
+      ],
+      "reranked_scheme_ids": [
+        "pm-awas-yojana-urban",
+        "clss",
+        "poshan-abhiyaan"
+      ],
+      "cited_scheme_ids": [
+        "pm-awas-yojana-urban"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Awaas Yojana - Urban (PMAY-U 2.0)** [pm-awas-yojana-urban]:\n\nScheme: Pradhan Mantri Awaas Yojana - Urban (PMAY-U 2.0) (pm-awas-yojana-urban)\nMinistry: Ministry of Housing and Urban Affairs\nBenefits & Financial Support:\nInterest subsidy up to ₹1.80 lakh on home loans or central financial assistance of ₹1.5 lakh for beneficiary-led construction.\n\nFor official details, visit the portal: https://pmaymis.gov.in [pm-awas-yojana-urban].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.0029,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-024",
+      "query": "Who is eligible to receive benefits under the Delhi Free Bus Pink Ticket scheme?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-ujjwala-yojana",
+        "sukanya-samriddhi-yojana",
+        "health-scheme-16",
+        "karnataka-gruha-lakshmi",
+        "pmsvanidhi",
+        "agri-scheme-8",
+        "health-scheme-5",
+        "poshan-abhiyaan"
+      ],
+      "reranked_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "sukanya-samriddhi-yojana",
+        "health-scheme-16",
+        "karnataka-gruha-lakshmi"
+      ],
+      "cited_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Ujjwala Yojana 2.0** [pm-ujjwala-yojana]:\n\nScheme: Pradhan Mantri Ujjwala Yojana 2.0 (pm-ujjwala-yojana)\nMinistry: Ministry of Petroleum and Natural Gas\nBenefits & Financial Support:\nFree LPG connection with zero deposit fee, first LPG refill free of cost, and hotplate (stove) provided free.\n\nFor official details, visit the portal: https://www.pmuy.gov.in [pm-ujjwala-yojana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002735,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [delhi-free-bus-pink-pass] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-025",
+      "query": "What is the maximum land holding allowed for PM Kisan Maan-Dhan Yojana?",
+      "query_type": "factual_lookup",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-urban",
+        "pm-suraksha-bima",
+        "kcc",
+        "pm-egp",
+        "pm-ujjwala-yojana",
+        "pm-awas-yojana-gramin"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "kcc",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nMinistry: Ministry of Agriculture and Farmers Welfare\nState Scope: All India\nEligibility Criteria:\n1. Must be a small or marginal farmer [Condition: occupation eq \"farmer\"]\n2. Minimum age is 18 years [Condition: age gte 18]\n3. Maximum age is 40 years [Condition: age lte 40]\n4. Must possess cultivable land up to 2 hectares only [Condition: land_holding_hectares lte 2]\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.003388,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-026",
+      "query": "I am a 32-year-old carpenter in Uttar Pradesh. Do I qualify for PM Vishwakarma?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-evidya",
+        "sukanya-samriddhi-yojana",
+        "maharashtra-ladki-bahin",
+        "pm-awas-yojana-gramin",
+        "pm-ujjwala-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "pm-evidya",
+        "pm-ujjwala-yojana"
+      ],
+      "cited_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana (SSY)** [sukanya-samriddhi-yojana]:\n\nScheme: Sukanya Samriddhi Yojana (SSY) (sukanya-samriddhi-yojana)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Account must be opened in name of a girl child [Condition: gender eq \"female\"]\n2. Girl child must be below 10 years of age at time of account opening [Condition: age lte 10]\n\nFor official details, visit the portal: https://www.indiapost.gov.in [sukanya-samriddhi-yojana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00337,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-vishwakarma] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-027",
+      "query": "Can a 45-year-old worker enroll in Atal Pension Yojana for the first time?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "atal-pension-yojana",
+        "maharashtra-ladki-bahin",
+        "working-women-hostel",
+        "pm-kisan-man-dhan",
+        "udaan",
+        "abry",
+        "matru-vandana"
+      ],
+      "reranked_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atal Pension Yojana (APY)** [atal-pension-yojana]:\n\nScheme: Atal Pension Yojana (APY) (atal-pension-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nGuaranteed minimum monthly pension of ₹1,000 to ₹5,000 upon reaching 60 years, with spouse pension and nominee return of corpus.\n\nFor official details, visit the portal: https://www.npscra.nsdl.co.in [atal-pension-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002805,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-028",
+      "query": "I am 52 years old. Can I buy a new policy under PM Jeevan Jyoti Bima Yojana (PMJJBY)?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-jeevan-jyoti"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "pmay-gramin",
+        "maharashtra-ladki-bahin",
+        "fasal-bima",
+        "pm-mudra",
+        "pm-kisan-man-dhan",
+        "pm-evidya",
+        "pm-mudra-yojana",
+        "pm-awas-yojana-gramin",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "fasal-bima",
+        "pm-ujjwala-yojana",
+        "pm-mudra-yojana",
+        "maharashtra-ladki-bahin"
+      ],
+      "cited_scheme_ids": [
+        "fasal-bima"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Fasal Bima Yojana** [fasal-bima]:\n\nScheme: Pradhan Mantri Fasal Bima Yojana (fasal-bima)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmfby.gov.in\nDeadline: 2025-07-08\nProcedure:\nApply via banks, insurance providers, or the PMFBY portal.\nRequired Documents: Aadhaar card, Land ownership proof, Sowing certificate, Bank details\n\nFor official details, visit the portal: https://pmfby.gov.in [fasal-bima].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003158,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-jeevan-jyoti] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-029",
+      "query": "I am 65 years old. Can I enroll in Pradhan Mantri Suraksha Bima Yojana (PMSBY)?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "fasal-bima",
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-urban",
+        "matru-vandana",
+        "sukanya-samriddhi-yojana",
+        "pmssy",
+        "agri-scheme-19",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "pm-suraksha-bima",
+        "fasal-bima",
+        "pmssy",
+        "pm-awas-yojana-gramin"
+      ],
+      "cited_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Suraksha Bima Yojana (PMSBY)** [pm-suraksha-bima]:\n\nScheme: Pradhan Mantri Suraksha Bima Yojana (PMSBY) (pm-suraksha-bima)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Applicant must be at least 18 years old [Condition: age gte 18]\n2. Applicant must be at most 70 years old [Condition: age lte 70]\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-suraksha-bima].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00307,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-030",
+      "query": "Can a father open a Sukanya Samriddhi account for his 12-year-old daughter?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya",
+        "agri-scheme-4",
+        "sukanya-samriddhi-yojana",
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-urban",
+        "pm-ujjwala-yojana",
+        "agri-scheme-15",
+        "atal-pension-yojana",
+        "agri-scheme-18"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "sukanya",
+        "atal-pension-yojana"
+      ],
+      "cited_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana (SSY)** [sukanya-samriddhi-yojana]:\n\nScheme: Sukanya Samriddhi Yojana (SSY) (sukanya-samriddhi-yojana)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Account must be opened in name of a girl child [Condition: gender eq \"female\"]\n2. Girl child must be below 10 years of age at time of account opening [Condition: age lte 10]\n\nFor official details, visit the portal: https://www.indiapost.gov.in [sukanya-samriddhi-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003168,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-031",
+      "query": "I am an urban fruit vendor in Delhi without collateral. Can I get a working capital loan under PM SVANidhi?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-svanidhi",
+        "nuhf",
+        "pm-awas-yojana-gramin",
+        "pm-mudra",
+        "pmsvanidhi",
+        "pmay-urban",
+        "pm-vishwakarma",
+        "delhi-free-bus-pink-pass",
+        "ghtc-india"
+      ],
+      "reranked_scheme_ids": [
+        "pm-svanidhi",
+        "pmay-urban",
+        "pmsvanidhi",
+        "nuhf"
+      ],
+      "cited_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)** [pm-svanidhi]:\n\nScheme: PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) (pm-svanidhi)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmsvanidhi.mohua.gov.in\nDeadline: 2026-12-31\nProcedure:\nStep 1: Check vending status via Certificate of Vending or ULB Letter of Recommendation.\nStep 2: Visit pmsvanidhi.mohua.gov.in or nearest CSC with Aadhaar and mobile number.\nStep 3: Fill application with vending location, bank account details, and preferred lending institution.\nStep 4: Submit application and undergo verification by Urban Local Body.\nStep 5: Loan amount is disbursed directly to applicant bank account.\n\nFor official details, visit the portal: https://pmsvanidhi.mohua.gov.in [pm-svanidhi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.003933,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-032",
+      "query": "A family in Maharashtra earns ₹4.5 lakh per year. Can the mother get Ladki Bahin Yojana aid?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-yasasvi",
+        "sukanya-samriddhi-yojana",
+        "maharashtra-ladki-bahin",
+        "atal-pension-yojana",
+        "pm-mudra-yojana",
+        "pm-jeevan-jyoti",
+        "pmjay"
+      ],
+      "reranked_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "pmjay"
+      ],
+      "cited_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra)** [maharashtra-ladki-bahin]:\n\nScheme: Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra) (maharashtra-ladki-bahin)\nMinistry: Department of Women and Child Development, Maharashtra\nState Scope: Maharashtra\nEligibility Criteria:\n1. Must be a resident of Maharashtra state [Condition: state in [\"Maharashtra\",\"All India\"]]\n2. Must be a female applicant [Condition: gender eq \"female\"]\n3. Minimum age is 21 years [Condition: age gte 21]\n4. Maximum age is 65 years [Condition: age lte 65]\n5. Combined family annual income must not exceed ₹2.5 lakh [Condition: income_annual lte 250000]\n\nFor official details, visit the portal: https://ladakibahin.maharashtra.gov.in [maharashtra-ladki-bahin].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.004208,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-033",
+      "query": "I am a tenant farmer with zero land registered in my name. Can I register for PM-KISAN?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-kisan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan",
+        "pm-awas-yojana-gramin",
+        "agri-scheme-6",
+        "arhc",
+        "pm-vishwakarma",
+        "pm-evidya",
+        "pm-ujjwala-yojana",
+        "agri-scheme-12",
+        "pm-kisan-man-dhan",
+        "pm-jeevan-jyoti"
+      ],
+      "reranked_scheme_ids": [
+        "arhc",
+        "agri-scheme-6",
+        "agri-scheme-12",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "arhc"
+      ],
+      "generated_answer": "Based on verified scheme information for **Affordable Rental Housing Complexes (ARHC)** [arhc]:\n\nScheme: Affordable Rental Housing Complexes (ARHC) (arhc)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmay-urban.gov.in/arhc\nDeadline: 2025-07-08\nProcedure:\nContact Urban Local Bodies (ULBs) or private ARHC operators in your area.\nRequired Documents: Aadhaar, Proof of employment, Identity documents\n\nFor official details, visit the portal: https://pmay-urban.gov.in/arhc [arhc].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00318,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-kisan] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-034",
+      "query": "Can a 19-year-old college student in Karnataka apply as head of household for Gruha Lakshmi?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-yasasvi",
+        "pm-awas-yojana-urban",
+        "maharashtra-ladki-bahin",
+        "pm-jay-ayushman",
+        "pm-vishwakarma",
+        "pmay-gramin",
+        "pmsvanidhi"
+      ],
+      "reranked_scheme_ids": [
+        "pm-yasasvi",
+        "pm-jay-ayushman",
+        "pm-vishwakarma",
+        "pmsvanidhi"
+      ],
+      "cited_scheme_ids": [
+        "pm-yasasvi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Young Achievers Scholarship Award Scheme for Vibrant India (PM-YASASVI)** [pm-yasasvi]:\n\nScheme: PM Young Achievers Scholarship Award Scheme for Vibrant India (PM-YASASVI) (pm-yasasvi)\nApplication Procedure & Official Links:\nOfficial Portal: https://yet.nta.ac.in\nDeadline: 2025-07-08\nProcedure:\nApply via NTA portal: https://yet.nta.ac.in\nRequired Documents: Income certificate, Caste certificate, Previous year mark sheet\n\nFor official details, visit the portal: https://yet.nta.ac.in [pm-yasasvi].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003615,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [karnataka-gruha-lakshmi] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-035",
+      "query": "A small farmer owns 3.5 hectares of land. Does he qualify for PM Kisan Maan-Dhan Yojana?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-suraksha-bima",
+        "fasal-bima",
+        "pm-kisan-man-dhan",
+        "pm-kisan",
+        "pm-mudra",
+        "pm-jeevan-jyoti",
+        "pm-jay-ayushman",
+        "pm-awas-yojana-gramin"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-kisan",
+        "pm-jeevan-jyoti"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nMinistry: Ministry of Agriculture and Farmers Welfare\nState Scope: All India\nEligibility Criteria:\n1. Must be a small or marginal farmer [Condition: occupation eq \"farmer\"]\n2. Minimum age is 18 years [Condition: age gte 18]\n3. Maximum age is 40 years [Condition: age lte 40]\n4. Must possess cultivable land up to 2 hectares only [Condition: land_holding_hectares lte 2]\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003323,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-036",
+      "query": "Can a male artisan apply for PM Ujjwala Yojana 2.0 LPG connection in his own name?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "pm-vishwakarma",
+        "pmay-urban",
+        "arhc",
+        "pm-shri",
+        "pm-awas-yojana-gramin",
+        "nme-mcm",
+        "pm-suraksha-bima",
+        "ujjwala",
+        "agri-scheme-20"
+      ],
+      "reranked_scheme_ids": [
+        "ujjwala",
+        "pm-ujjwala-yojana",
+        "arhc",
+        "pm-shri"
+      ],
+      "cited_scheme_ids": [
+        "ujjwala"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Ujjwala Yojana (PMUY)** [ujjwala]:\n\nScheme: Pradhan Mantri Ujjwala Yojana (PMUY) (ujjwala)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmuy.gov.in\nDeadline: 2025-07-08\nProcedure:\nApply at nearest LPG distributor or via official PMUY portal.\nRequired Documents: Aadhaar, Ration card, BPL certificate, Bank passbook\n\nFor official details, visit the portal: https://pmuy.gov.in [ujjwala].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002995,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-037",
+      "query": "I am a small shopkeeper wanting to expand inventory. Can I apply for a MUDRA loan?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "swayam",
+        "pm-mudra-yojana",
+        "udaan",
+        "pm-mudra",
+        "pm-jay-ayushman",
+        "pmjay",
+        "ahf",
+        "pm-awas-yojana-urban",
+        "atal-pension-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-mudra",
+        "ahf",
+        "atal-pension-yojana"
+      ],
+      "cited_scheme_ids": [
+        "pm-mudra-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri MUDRA Yojana (PMMY)** [pm-mudra-yojana]:\n\nScheme: Pradhan Mantri MUDRA Yojana (PMMY) (pm-mudra-yojana)\nApplication Procedure & Official Links:\nOfficial Portal: https://www.mudra.org.in\nDeadline: open_all_year\nProcedure:\nStep 1: Prepare business plan with quotation for machinery or working capital estimation.\nStep 2: Apply online at udyamimitra.in or submit form at any commercial bank / NBFC.\nStep 3: Submit KYC documents, business proof, and previous 6 months bank statement.\nStep 4: Bank processes loan without collateral and issues MUDRA debit card for working capital.\n\nFor official details, visit the portal: https://www.mudra.org.in [pm-mudra-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003893,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-038",
+      "query": "Does an 8-year-old primary school child in a government school automatically get free midday meals?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-poshan-shakti"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "nishtha",
+        "pm-poshan-shakti",
+        "pm-mudra-yojana",
+        "startup-india",
+        "sukanya-samriddhi-yojana",
+        "pmjay"
+      ],
+      "reranked_scheme_ids": [
+        "nishtha",
+        "pm-poshan-shakti"
+      ],
+      "cited_scheme_ids": [
+        "nishtha"
+      ],
+      "generated_answer": "Based on verified scheme information for **National Initiative for School Heads' and Teachers' Holistic Advancement (NISHTHA)** [nishtha]:\n\nScheme: National Initiative for School Heads' and Teachers' Holistic Advancement (NISHTHA) (nishtha)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nAll school heads and teachers at the elementary level in government and aided schools.\n\nFor official details, visit the portal: https://diksha.gov.in [nishtha].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.003098,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-039",
+      "query": "An urban family earns ₹8 lakh annually. Can they get interest subsidy under PMAY-Urban 2.0?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-awas-yojana-urban"
+      ],
+      "retrieved_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "nuhf",
+        "sukanya",
+        "pm-suraksha-bima",
+        "blc",
+        "clss",
+        "pm-svanidhi",
+        "pm-yasasvi"
+      ],
+      "reranked_scheme_ids": [
+        "nuhf",
+        "maharashtra-ladki-bahin",
+        "clss",
+        "pm-svanidhi"
+      ],
+      "cited_scheme_ids": [
+        "nuhf"
+      ],
+      "generated_answer": "Based on verified scheme information for **National Urban Housing Fund (NUHF)** [nuhf]:\n\nScheme: National Urban Housing Fund (NUHF) (nuhf)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmay-urban.gov.in\nDeadline: 2025-07-08\nProcedure:\nAccessed by eligible agencies through MoHUA.\nRequired Documents: Project reports, State approvals, Funding plan\n\nFor official details, visit the portal: https://pmay-urban.gov.in [nuhf].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 3,
+        "overall_score": 3,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003113,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-awas-yojana-urban] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-040",
+      "query": "Can a resident of Tamil Nadu get monthly cash support from Karnataka's Gruha Lakshmi?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "retrieved_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "pm-jay-ayushman",
+        "swayam",
+        "pm-suraksha-bima",
+        "stars",
+        "working-women-hostel",
+        "pm-ujjwala-yojana",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "pm-jay-ayushman",
+        "swayam"
+      ],
+      "cited_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "generated_answer": "Based on verified scheme information for **Gruha Lakshmi Scheme (Karnataka)** [karnataka-gruha-lakshmi]:\n\nScheme: Gruha Lakshmi Scheme (Karnataka) (karnataka-gruha-lakshmi)\nMinistry: Department of Women and Child Development, Karnataka\nState Scope: Karnataka\nEligibility Criteria:\n1. Must be a resident of Karnataka state [Condition: state in [\"Karnataka\",\"All India\"]]\n2. Applicant must be woman head of the family as named in Ration card [Condition: gender eq \"female\"]\n3. Must be at least 18 years of age [Condition: age gte 18]\n\nFor official details, visit the portal: https://sevasindhugs.karnataka.gov.in [karnataka-gruha-lakshmi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003435,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-041",
+      "query": "A 72-year-old retired farmer wants to enroll in PMSBY accident insurance. Can he?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "pm-suraksha-bima",
+        "karnataka-gruha-lakshmi",
+        "pm-kisan-man-dhan",
+        "maharashtra-ladki-bahin",
+        "pm-poshan-shakti",
+        "matru-vandana",
+        "pm-yasasvi",
+        "pmjay"
+      ],
+      "reranked_scheme_ids": [
+        "pm-suraksha-bima",
+        "karnataka-gruha-lakshmi",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Suraksha Bima Yojana (PMSBY)** [pm-suraksha-bima]:\n\nScheme: Pradhan Mantri Suraksha Bima Yojana (PMSBY) (pm-suraksha-bima)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\n₹2 Lakh for accidental death or permanent total disability; ₹1 Lakh for permanent partial disability. Annual premium: ₹20.\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-suraksha-bima].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00324,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-042",
+      "query": "I am a 25-year-old blacksmith with no formal certificate. Can I register for PM Vishwakarma?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "pmay-gramin",
+        "pmjay",
+        "sukanya-samriddhi-yojana",
+        "pm-vishwakarma",
+        "pm-svanidhi",
+        "pm-jeevan-jyoti",
+        "slum-redevelopment",
+        "nfm-sc",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "nfm-sc",
+        "sukanya-samriddhi-yojana",
+        "pm-ujjwala-yojana",
+        "pm-svanidhi"
+      ],
+      "cited_scheme_ids": [
+        "nfm-sc"
+      ],
+      "generated_answer": "Based on verified scheme information for **National Fellowship for SC Students** [nfm-sc]:\n\nScheme: National Fellowship for SC Students (nfm-sc)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nSC students enrolled in full-time MPhil/PhD courses with annual income < ₹6 lakh.\n\nFor official details, visit the portal: https://www.ugc.ac.in [nfm-sc].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003163,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-vishwakarma] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-043",
+      "query": "A 35-year-old woman with a ₹1.8 lakh family income in Pune wants Ladki Bahin aid. Does she qualify?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "stand-up-india",
+        "pm-yasasvi",
+        "pm-kisan-man-dhan",
+        "maharashtra-ladki-bahin",
+        "nme-mcm",
+        "pm-svanidhi",
+        "pm-awas-yojana-gramin",
+        "working-women-hostel",
+        "pm-jay-ayushman"
+      ],
+      "reranked_scheme_ids": [
+        "pm-yasasvi",
+        "nme-mcm",
+        "maharashtra-ladki-bahin",
+        "pm-jay-ayushman"
+      ],
+      "cited_scheme_ids": [
+        "pm-yasasvi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Young Achievers Scholarship Award Scheme for Vibrant India (PM-YASASVI)** [pm-yasasvi]:\n\nScheme: PM Young Achievers Scholarship Award Scheme for Vibrant India (PM-YASASVI) (pm-yasasvi)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nStudents in classes 9 and 11 belonging to OBC/EBC/DNT categories with family income below ₹2.5 lakh.\n\nFor official details, visit the portal: https://yet.nta.ac.in [pm-yasasvi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 2,
+        "overall_score": 3.5,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/4 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003153,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-044",
+      "query": "Does Ayushman Bharat require proof of being below the poverty line or in the SECC list?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "retrieved_scheme_ids": [
+        "working-women-hostel",
+        "fasal-bima",
+        "swayam",
+        "agri-scheme-7",
+        "pm-shri",
+        "imprint",
+        "agri-scheme-6",
+        "make-in-india",
+        "nme-mcm",
+        "health-scheme-11"
+      ],
+      "reranked_scheme_ids": [
+        "working-women-hostel",
+        "fasal-bima",
+        "imprint",
+        "swayam"
+      ],
+      "cited_scheme_ids": [
+        "working-women-hostel"
+      ],
+      "generated_answer": "Based on verified scheme information for **Working Women Hostel Scheme** [working-women-hostel]:\n\nScheme: Working Women Hostel Scheme (working-women-hostel)\nApplication Procedure & Official Links:\nOfficial Portal: https://wcd.nic.in/schemes/working-women-hostel\nDeadline: 2025-07-08\nProcedure:\nApply through the warden at listed hostels or via employer tie-up.\nRequired Documents: Employment proof, Income certificate, ID proof\n\nFor official details, visit the portal: https://wcd.nic.in/schemes/working-women-hostel [working-women-hostel].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003198,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-jay-ayushman] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-045",
+      "query": "Can an 18-year-old farmer with 1 hectare land start contributing to PM-KMY pension?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "atal-pension-yojana",
+        "pm-svanidhi",
+        "pm-egp",
+        "pmsvanidhi",
+        "pm-mudra-yojana",
+        "pmjay",
+        "pm-jeevan-jyoti",
+        "pm-ujjwala-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-egp",
+        "pm-jeevan-jyoti"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nMinistry: Ministry of Agriculture and Farmers Welfare\nState Scope: All India\nEligibility Criteria:\n1. Must be a small or marginal farmer [Condition: occupation eq \"farmer\"]\n2. Minimum age is 18 years [Condition: age gte 18]\n3. Maximum age is 40 years [Condition: age lte 40]\n4. Must possess cultivable land up to 2 hectares only [Condition: land_holding_hectares lte 2]\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 4,
+        "overall_score": 4.3,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003383,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-046",
+      "query": "Can a Delhi male commuter get a Pink Ticket on DTC buses?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "retrieved_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-ujjwala-yojana",
+        "delhi-free-bus-pink-pass",
+        "pm-suraksha-bima",
+        "nmeict",
+        "one-stop-centre",
+        "imprint",
+        "poshan-abhiyaan"
+      ],
+      "reranked_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "pm-ujjwala-yojana",
+        "atal-pension-yojana",
+        "pm-suraksha-bima"
+      ],
+      "cited_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "generated_answer": "Based on verified scheme information for **Delhi Free DTC Bus Travel (Pink Ticket)** [delhi-free-bus-pink-pass]:\n\nScheme: Delhi Free DTC Bus Travel (Pink Ticket) (delhi-free-bus-pink-pass)\nMinistry: Transport Department, Government of NCT of Delhi\nCategory: Social Security\nState Scope: Delhi\nOverview & Objective:\nUniversal free public bus travel for women commuters on all Delhi Transport Corporation (DTC) and Cluster buses.\n\nFor official details, visit the portal: https://transport.delhi.gov.in [delhi-free-bus-pink-pass].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003188,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-047",
+      "query": "Can an unorganized sector maid aged 22 open an Atal Pension Yojana account?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "pm-svanidhi",
+        "sukanya-samriddhi-yojana",
+        "pm-mudra-yojana",
+        "maharashtra-ladki-bahin",
+        "fasal-bima",
+        "pm-awas-yojana-urban",
+        "pm-ujjwala-yojana",
+        "nuhf",
+        "atal-pension-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "atal-pension-yojana",
+        "maharashtra-ladki-bahin",
+        "pm-awas-yojana-gramin",
+        "sukanya-samriddhi-yojana"
+      ],
+      "cited_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atal Pension Yojana (APY)** [atal-pension-yojana]:\n\nScheme: Atal Pension Yojana (APY) (atal-pension-yojana)\nApplication Procedure & Official Links:\nOfficial Portal: https://www.npscra.nsdl.co.in\nDeadline: open_all_year\nProcedure:\nStep 1: Approach the bank branch or post office where you maintain a savings account.\nStep 2: Fill out the APY subscriber registration form indicating monthly pension choice.\nStep 3: Provide Aadhaar details and auto-debit consent for monthly contributions.\nStep 4: Receive Permanent Retirement Account Number (PRAN) confirmation SMS.\n\nFor official details, visit the portal: https://www.npscra.nsdl.co.in [atal-pension-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 2,
+        "overall_score": 3.5,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003853,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-048",
+      "query": "Can an IT professional earning ₹15 lakh per year get subsidized housing under PMAY-G?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-awas-yojana-gramin"
+      ],
+      "retrieved_scheme_ids": [
+        "pmay-urban",
+        "pm-svanidhi",
+        "pm-jay-ayushman",
+        "pm-suraksha-bima",
+        "pm-mudra",
+        "ahf",
+        "pm-awas-yojana-urban",
+        "pm-yasasvi"
+      ],
+      "reranked_scheme_ids": [
+        "pm-jay-ayushman",
+        "ahf",
+        "pm-yasasvi",
+        "pmay-urban"
+      ],
+      "cited_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "generated_answer": "Based on verified scheme information for **Ayushman Bharat PM-JAY** [pm-jay-ayushman]:\n\nScheme: Ayushman Bharat PM-JAY (pm-jay-ayushman)\nMinistry: Ministry of Health and Family Welfare\nCategory: Healthcare\nState Scope: All India\nOverview & Objective:\nWorld's largest health assurance scheme providing ₹5 lakh health cover per family per year for secondary and tertiary care hospitalization.\n\nFor official details, visit the portal: https://nha.gov.in/PM-JAY [pm-jay-ayushman].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002805,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-awas-yojana-gramin] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-049",
+      "query": "Can a 2-year-old girl child have a Sukanya Samriddhi account opened by her mother?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "poshan-abhiyaan",
+        "pm-jeevan-jyoti",
+        "maharashtra-ladki-bahin",
+        "udaan",
+        "karnataka-gruha-lakshmi",
+        "sukanya"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "sukanya"
+      ],
+      "cited_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana (SSY)** [sukanya-samriddhi-yojana]:\n\nScheme: Sukanya Samriddhi Yojana (SSY) (sukanya-samriddhi-yojana)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Account must be opened in name of a girl child [Condition: gender eq \"female\"]\n2. Girl child must be below 10 years of age at time of account opening [Condition: age lte 10]\n\nFor official details, visit the portal: https://www.indiapost.gov.in [sukanya-samriddhi-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 4,
+        "overall_score": 4.3,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00318,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-050",
+      "query": "Can a woman without an LPG connection in a BPL household apply for Ujjwala 2.0?",
+      "query_type": "eligibility_check",
+      "target_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "ujjwala",
+        "pm-ujjwala-yojana",
+        "pm-yasasvi",
+        "pm-svanidhi",
+        "pmay-urban",
+        "udaan",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "ujjwala",
+        "pm-yasasvi",
+        "udaan"
+      ],
+      "cited_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Ujjwala Yojana 2.0** [pm-ujjwala-yojana]:\n\nScheme: Pradhan Mantri Ujjwala Yojana 2.0 (pm-ujjwala-yojana)\nApplication Procedure & Official Links:\nOfficial Portal: https://www.pmuy.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Download Ujjwala 2.0 application form from pmuy.gov.in or obtain from LPG distributor.\nStep 2: Attach Aadhaar, BPL Ration Card, family member list, and bank passbook.\nStep 3: Submit form at nearest Indane, Bharatgas, or HP Gas distributor.\nStep 4: Distributor performs e-KYC and issues gas connection with subsidized stove and cylinder.\n\nFor official details, visit the portal: https://www.pmuy.gov.in [pm-ujjwala-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003788,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-051",
+      "query": "What is the difference between PMSBY and PMJJBY in terms of premium and insurance coverage?",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti"
+      ],
+      "retrieved_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "pm-jeevan-jyoti",
+        "pm-vishwakarma",
+        "startup-india",
+        "pm-kisan-man-dhan",
+        "sukanya-samriddhi-yojana",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti"
+      ],
+      "cited_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Vishwakarma Scheme** [pm-vishwakarma]:\n\nScheme: PM Vishwakarma Scheme (pm-vishwakarma)\nMinistry: Ministry of Micro, Small and Medium Enterprises\nState Scope: All India\nEligibility Criteria:\n1. Minimum age is 18 years [Condition: age gte 18]\n2. Must be engaged in one of the 18 specified traditional trades using hands and tools [Condition: occupation in [\"carpenter\",\"blacksmith\",\"goldsmith\",\"potter\",\"sculptor\",\"cobbler\",\"mason\",\"barber\",\"tailor\",\"artisan\"]]\n\nFor official details, visit the portal: https://pmvishwakarma.gov.in [pm-vishwakarma].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003643,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-052",
+      "query": "How does PM-KISAN differ from PM Kisan Maan-Dhan Yojana (PM-KMY)?",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-kisan",
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-gramin",
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti",
+        "pm-vishwakarma",
+        "pmay-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-gramin",
+        "pm-suraksha-bima"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nApplication Procedure & Official Links:\nOfficial Portal: https://maandhan.in\nDeadline: open_all_year\nProcedure:\nStep 1: Visit nearest Common Service Center (CSC) with Aadhaar and Savings Bank account passbook.\nStep 2: Calculate monthly premium (₹55 to ₹200 depending on entry age).\nStep 3: Sign auto-debit mandate from bank account or PM-KISAN credit.\nStep 4: Receive Kisan Pension Card.\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003848,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-kisan, pm-kisan-man-dhan] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-053",
+      "query": "Compare the monthly financial support of Gruha Lakshmi (Karnataka) and Ladki Bahin (Maharashtra).",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "stand-up-india",
+        "fasal-bima",
+        "maharashtra-ladki-bahin",
+        "matru-vandana",
+        "pm-vishwakarma",
+        "karnataka-gruha-lakshmi"
+      ],
+      "reranked_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "maharashtra-ladki-bahin"
+      ],
+      "cited_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "generated_answer": "Based on verified scheme information for **Gruha Lakshmi Scheme (Karnataka)** [karnataka-gruha-lakshmi]:\n\nScheme: Gruha Lakshmi Scheme (Karnataka) (karnataka-gruha-lakshmi)\nMinistry: Department of Women and Child Development, Karnataka\nBenefits & Financial Support:\nDirect monthly cash transfer of ₹2,000 into the Aadhaar-seeded bank account of the woman head of family.\n\nFor official details, visit the portal: https://sevasindhugs.karnataka.gov.in [karnataka-gruha-lakshmi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003361,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-054",
+      "query": "Compare Atal Pension Yojana with PM Kisan Maan-Dhan in terms of target group and pension amount.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-awas-yojana-urban",
+        "pm-awas-yojana-gramin",
+        "pm-jeevan-jyoti",
+        "pm-ujjwala-yojana",
+        "pmssy",
+        "pm-mudra-yojana",
+        "slum-redevelopment"
+      ],
+      "reranked_scheme_ids": [
+        "atal-pension-yojana",
+        "pmssy"
+      ],
+      "cited_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atal Pension Yojana (APY)** [atal-pension-yojana]:\n\nScheme: Atal Pension Yojana (APY) (atal-pension-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nGuaranteed minimum monthly pension of ₹1,000 to ₹5,000 upon reaching 60 years, with spouse pension and nominee return of corpus.\n\nFor official details, visit the portal: https://www.npscra.nsdl.co.in [atal-pension-yojana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002895,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [atal-pension-yojana, pm-kisan-man-dhan] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-055",
+      "query": "Compare PMAY-Gramin and PMAY-Urban in scope and assistance.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "pm-awas-yojana-urban"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "pmay-gramin",
+        "pm-awas-yojana-urban",
+        "stand-up-india",
+        "make-in-india",
+        "pm-svanidhi",
+        "nuhf"
+      ],
+      "reranked_scheme_ids": [
+        "stand-up-india",
+        "pm-awas-yojana-urban",
+        "make-in-india",
+        "pm-svanidhi"
+      ],
+      "cited_scheme_ids": [
+        "stand-up-india"
+      ],
+      "generated_answer": "Based on verified scheme information for **Stand Up India Scheme** [stand-up-india]:\n\nScheme: Stand Up India Scheme (stand-up-india)\nMinistry: Central\nBenefits & Financial Support:\nLoans for manufacturing, trading, or services with relaxed collateral and margin requirements.\n\nFor official details, visit the portal: https://www.standupmitra.in [stand-up-india].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00264,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-awas-yojana-gramin, pm-awas-yojana-urban] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-056",
+      "query": "How do PM SVANidhi and MUDRA Shishu loans compare for micro-businesses?",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-svanidhi",
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "matru-vandana",
+        "pm-yasasvi",
+        "pm-ujjwala-yojana",
+        "pm-mudra",
+        "pm-vishwakarma",
+        "pm-kisan-man-dhan",
+        "pmay-urban",
+        "pm-kisan"
+      ],
+      "reranked_scheme_ids": [
+        "pm-yasasvi",
+        "matru-vandana",
+        "pm-mudra"
+      ],
+      "cited_scheme_ids": [
+        "pm-yasasvi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Young Achievers Scholarship Award Scheme for Vibrant India (PM-YASASVI)** [pm-yasasvi]:\n\nScheme: PM Young Achievers Scholarship Award Scheme for Vibrant India (PM-YASASVI) (pm-yasasvi)\nMinistry: Central\nCategory: Education\nState Scope: All India\nOverview & Objective:\nScholarship for students in OBC, EBC, and DNT categories for class 9 and 11.\nKeywords: yasasvi, scholarship, obc, dnt, education\n\nFor official details, visit the portal: https://yet.nta.ac.in [pm-yasasvi].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003135,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-svanidhi, pm-mudra-yojana] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-057",
+      "query": "Compare the age limits for PMSBY, PMJJBY, and APY.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti",
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "matru-vandana",
+        "pm-kisan-man-dhan",
+        "atal-pension-yojana",
+        "pm-vishwakarma",
+        "pm-suraksha-bima",
+        "working-women-hostel",
+        "nishtha",
+        "poshan-abhiyaan"
+      ],
+      "reranked_scheme_ids": [
+        "nishtha",
+        "pm-vishwakarma",
+        "pm-kisan-man-dhan",
+        "atal-pension-yojana"
+      ],
+      "cited_scheme_ids": [
+        "nishtha"
+      ],
+      "generated_answer": "Based on verified scheme information for **National Initiative for School Heads' and Teachers' Holistic Advancement (NISHTHA)** [nishtha]:\n\nScheme: National Initiative for School Heads' and Teachers' Holistic Advancement (NISHTHA) (nishtha)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nAll school heads and teachers at the elementary level in government and aided schools.\n\nFor official details, visit the portal: https://diksha.gov.in [nishtha].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003065,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-suraksha-bima, pm-jeevan-jyoti, atal-pension-yojana] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-058",
+      "query": "Compare the health benefits of Ayushman Bharat with insurance under PMSBY.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-jay-ayushman",
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-jay-ayushman",
+        "abhim",
+        "health-scheme-4",
+        "health-scheme-18",
+        "health-scheme-12",
+        "health-scheme-6",
+        "poshan-abhiyaan",
+        "working-women-hostel"
+      ],
+      "reranked_scheme_ids": [
+        "pm-jay-ayushman",
+        "health-scheme-4",
+        "health-scheme-18",
+        "health-scheme-12"
+      ],
+      "cited_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "generated_answer": "Based on verified scheme information for **Ayushman Bharat PM-JAY** [pm-jay-ayushman]:\n\nScheme: Ayushman Bharat PM-JAY (pm-jay-ayushman)\nMinistry: Ministry of Health and Family Welfare\nBenefits & Financial Support:\nCashless and paperless access to medical services up to ₹5,00,000 per family per year across 27,000+ empanelled hospitals.\n\nFor official details, visit the portal: https://nha.gov.in/PM-JAY [pm-jay-ayushman].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002508,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-jay-ayushman, pm-suraksha-bima] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-059",
+      "query": "How do Sukanya Samriddhi Yojana and Ladki Bahin Yojana differ in purpose?",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya",
+        "pm-awas-yojana-gramin",
+        "pmssy",
+        "matru-vandana",
+        "pm-awas-yojana-urban",
+        "pm-suraksha-bima",
+        "inspire"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya",
+        "matru-vandana"
+      ],
+      "cited_scheme_ids": [
+        "sukanya"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana** [sukanya]:\n\nScheme: Sukanya Samriddhi Yojana (sukanya)\nMinistry: Central\nCategory: Women & Child\nState Scope: All India\nOverview & Objective:\nSmall deposit scheme for a girl child’s future education and marriage expenses.\nKeywords: savings, girl child, sukanya, education, marriage\n\nFor official details, visit the portal: https://www.india.gov.in/sukanya-samriddhi-account [sukanya].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 5,
+        "overall_score": 3.8,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00282,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [sukanya-samriddhi-yojana, maharashtra-ladki-bahin] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-060",
+      "query": "Compare PM Vishwakarma and MUDRA loan interest rates and skill components.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-svanidhi",
+        "pm-jay-ayushman",
+        "pm-kisan-man-dhan",
+        "matru-vandana",
+        "slum-redevelopment",
+        "stand-up-india",
+        "pm-egp",
+        "pm-awas-yojana-urban",
+        "pmay-urban"
+      ],
+      "reranked_scheme_ids": [
+        "stand-up-india",
+        "matru-vandana",
+        "pm-vishwakarma",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "stand-up-india"
+      ],
+      "generated_answer": "Based on verified scheme information for **Stand Up India Scheme** [stand-up-india]:\n\nScheme: Stand Up India Scheme (stand-up-india)\nMinistry: Central\nBenefits & Financial Support:\nLoans for manufacturing, trading, or services with relaxed collateral and margin requirements.\n\nFor official details, visit the portal: https://www.standupmitra.in [stand-up-india].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002758,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-vishwakarma, pm-mudra-yojana] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-061",
+      "query": "Compare PM-KISAN with Karnataka's Gruha Lakshmi in terms of beneficiary selection.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-kisan",
+        "karnataka-gruha-lakshmi"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "karnataka-gruha-lakshmi",
+        "blc",
+        "pm-kisan-man-dhan",
+        "pm-mudra",
+        "slum-redevelopment",
+        "pm-jeevan-jyoti"
+      ],
+      "reranked_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "blc",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "generated_answer": "Based on verified scheme information for **Gruha Lakshmi Scheme (Karnataka)** [karnataka-gruha-lakshmi]:\n\nScheme: Gruha Lakshmi Scheme (Karnataka) (karnataka-gruha-lakshmi)\nMinistry: Department of Women and Child Development, Karnataka\nBenefits & Financial Support:\nDirect monthly cash transfer of ₹2,000 into the Aadhaar-seeded bank account of the woman head of family.\n\nFor official details, visit the portal: https://sevasindhugs.karnataka.gov.in [karnataka-gruha-lakshmi].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003085,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-kisan, karnataka-gruha-lakshmi] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-062",
+      "query": "Compare the loan amount progression between PM SVANidhi and MUDRA tiers.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-svanidhi",
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-suraksha-bima",
+        "matru-vandana",
+        "pm-awas-yojana-urban",
+        "pm-egp",
+        "pm-shri",
+        "pmssy",
+        "pmsvanidhi",
+        "pm-kisan",
+        "pm-yasasvi"
+      ],
+      "reranked_scheme_ids": [
+        "pm-mudra-yojana",
+        "pmsvanidhi",
+        "matru-vandana",
+        "pm-suraksha-bima"
+      ],
+      "cited_scheme_ids": [
+        "pm-mudra-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri MUDRA Yojana (PMMY)** [pm-mudra-yojana]:\n\nScheme: Pradhan Mantri MUDRA Yojana (PMMY) (pm-mudra-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nCollateral-free loans: Shishu (up to ₹50,000), Kishore (₹50,000 to ₹5 Lakh), Tarun (₹5 Lakh to ₹10 Lakh), and Tarun Plus (up to ₹20 Lakh).\n\nFor official details, visit the portal: https://www.mudra.org.in [pm-mudra-yojana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00301,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-svanidhi, pm-mudra-yojana] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-063",
+      "query": "Compare application steps for PM-KISAN vs Delhi Pink Pass.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-kisan",
+        "delhi-free-bus-pink-pass"
+      ],
+      "retrieved_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "ujjwala",
+        "pm-yasasvi",
+        "agri-scheme-9",
+        "pm-evidya",
+        "pm-kisan",
+        "pm-kisan-man-dhan",
+        "pm-shri",
+        "pm-poshan-shakti",
+        "pm-mudra"
+      ],
+      "reranked_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "pm-yasasvi",
+        "pm-kisan",
+        "pm-shri"
+      ],
+      "cited_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "generated_answer": "Based on verified scheme information for **Delhi Free DTC Bus Travel (Pink Ticket)** [delhi-free-bus-pink-pass]:\n\nScheme: Delhi Free DTC Bus Travel (Pink Ticket) (delhi-free-bus-pink-pass)\nMinistry: Transport Department, Government of NCT of Delhi\nState Scope: Delhi\nEligibility Criteria:\n1. Applicable for all female passengers [Condition: gender eq \"female\"]\n2. Available in Delhi NCT public transit routes [Condition: state in [\"Delhi\",\"All India\"]]\n\nFor official details, visit the portal: https://transport.delhi.gov.in [delhi-free-bus-pink-pass].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003265,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-064",
+      "query": "Compare the pension age and beneficiary death benefits between APY and PM-KMY.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "stand-up-india",
+        "pm-kisan-man-dhan",
+        "maharashtra-ladki-bahin",
+        "matru-vandana",
+        "pm-awas-yojana-gramin",
+        "pm-awas-yojana-urban",
+        "pm-jeevan-jyoti",
+        "slum-redevelopment",
+        "pm-mudra-yojana"
+      ],
+      "reranked_scheme_ids": [
+        "matru-vandana",
+        "maharashtra-ladki-bahin",
+        "pm-awas-yojana-gramin",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "matru-vandana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Matru Vandana Yojana (PMMVY)** [matru-vandana]:\n\nScheme: Pradhan Mantri Matru Vandana Yojana (PMMVY) (matru-vandana)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nPregnant women and lactating mothers aged 19+ for their first child.\n\nFor official details, visit the portal: https://pmmvy-cas.nic.in [matru-vandana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002738,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [atal-pension-yojana, pm-kisan-man-dhan] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/3 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-065",
+      "query": "Compare PMAY-G toilet grant with standard construction assistance.",
+      "query_type": "comparison",
+      "target_scheme_ids": [
+        "pm-awas-yojana-gramin"
+      ],
+      "retrieved_scheme_ids": [
+        "ghtc-india",
+        "pmay-urban",
+        "sukanya",
+        "poshan-shakti",
+        "pmay-gramin",
+        "karnataka-gruha-lakshmi",
+        "pm-awas-yojana-gramin",
+        "pm-awas-yojana-urban",
+        "agri-scheme-10"
+      ],
+      "reranked_scheme_ids": [
+        "pmay-gramin",
+        "pm-awas-yojana-gramin",
+        "poshan-shakti"
+      ],
+      "cited_scheme_ids": [
+        "pmay-gramin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Awas Yojana - Gramin (PMAY-G)** [pmay-gramin]:\n\nScheme: Pradhan Mantri Awas Yojana - Gramin (PMAY-G) (pmay-gramin)\nMinistry: Central\nBenefits & Financial Support:\nFinancial support up to ₹1.2–1.3 lakh depending on location, plus MGNREGA and toilet assistance.\n\nFor official details, visit the portal: https://pmayg.nic.in [pmay-gramin].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002648,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-066",
+      "query": "An applicant turns exactly 18 years old today. Can they enroll in PMSBY, PMJJBY, and APY today?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti",
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "pm-mudra-yojana",
+        "stand-up-india",
+        "karnataka-gruha-lakshmi",
+        "atal-pension-yojana",
+        "pm-ujjwala-yojana",
+        "pmay-gramin",
+        "pmssy",
+        "delhi-free-bus-pink-pass",
+        "pm-jay-ayushman"
+      ],
+      "reranked_scheme_ids": [
+        "atal-pension-yojana",
+        "maharashtra-ladki-bahin",
+        "pm-mudra-yojana",
+        "karnataka-gruha-lakshmi"
+      ],
+      "cited_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atal Pension Yojana (APY)** [atal-pension-yojana]:\n\nScheme: Atal Pension Yojana (APY) (atal-pension-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nGuaranteed minimum monthly pension of ₹1,000 to ₹5,000 upon reaching 60 years, with spouse pension and nominee return of corpus.\n\nFor official details, visit the portal: https://www.npscra.nsdl.co.in [atal-pension-yojana].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.3333,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.003193,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-suraksha-bima, pm-jeevan-jyoti, atal-pension-yojana] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-067",
+      "query": "An applicant is 40 years and 364 days old. Can they still join Atal Pension Yojana?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-suraksha-bima",
+        "atal-pension-yojana",
+        "matru-vandana",
+        "pm-ujjwala-yojana",
+        "pmssy",
+        "pm-mudra-yojana",
+        "pm-jeevan-jyoti",
+        "pm-poshan-shakti"
+      ],
+      "reranked_scheme_ids": [
+        "matru-vandana",
+        "atal-pension-yojana",
+        "pm-ujjwala-yojana"
+      ],
+      "cited_scheme_ids": [
+        "matru-vandana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Matru Vandana Yojana (PMMVY)** [matru-vandana]:\n\nScheme: Pradhan Mantri Matru Vandana Yojana (PMMVY) (matru-vandana)\nMinistry: Central\nBenefits & Financial Support:\n₹5,000 in 3 installments for nutrition and rest.\n\nFor official details, visit the portal: https://pmmvy-cas.nic.in [matru-vandana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 5,
+      "cost_usd": 0.002563,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-068",
+      "query": "A farmer owns exactly 2.00 hectares of land. Can he enroll in PM Kisan Maan-Dhan Yojana?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pmay-gramin",
+        "pm-suraksha-bima",
+        "pm-jeevan-jyoti",
+        "karnataka-gruha-lakshmi",
+        "fasal-bima",
+        "pm-kisan",
+        "pm-kisan-man-dhan",
+        "maharashtra-ladki-bahin",
+        "pm-vishwakarma",
+        "pm-awas-yojana-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-kisan",
+        "karnataka-gruha-lakshmi",
+        "maharashtra-ladki-bahin"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nMinistry: Ministry of Agriculture and Farmers Welfare\nCategory: Agriculture\nState Scope: All India\nOverview & Objective:\nVoluntary old-age social security pension scheme providing ₹3,000 monthly pension to small and marginal farmers on attaining 60 years.\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00332,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-069",
+      "query": "A family's annual income is exactly ₹2,50,000 in Maharashtra. Can they apply for Ladki Bahin?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "udaan",
+        "working-women-hostel",
+        "ahf",
+        "pm-awas-yojana-urban",
+        "maharashtra-ladki-bahin",
+        "matru-vandana",
+        "nfm-sc"
+      ],
+      "reranked_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "udaan",
+        "ahf"
+      ],
+      "cited_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra)** [maharashtra-ladki-bahin]:\n\nScheme: Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra) (maharashtra-ladki-bahin)\nMinistry: Department of Women and Child Development, Maharashtra\nState Scope: Maharashtra\nEligibility Criteria:\n1. Must be a resident of Maharashtra state [Condition: state in [\"Maharashtra\",\"All India\"]]\n2. Must be a female applicant [Condition: gender eq \"female\"]\n3. Minimum age is 21 years [Condition: age gte 21]\n4. Maximum age is 65 years [Condition: age lte 65]\n5. Combined family annual income must not exceed ₹2.5 lakh [Condition: income_annual lte 250000]\n\nFor official details, visit the portal: https://ladakibahin.maharashtra.gov.in [maharashtra-ladki-bahin].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00402,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-070",
+      "query": "A girl child turns 10 years old on the day of account opening. Can she open a Sukanya Samriddhi account?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "pm-suraksha-bima",
+        "pm-poshan-shakti",
+        "pm-svanidhi",
+        "agri-scheme-16",
+        "sukanya",
+        "maharashtra-ladki-bahin",
+        "pm-jay-ayushman"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "sukanya"
+      ],
+      "cited_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana (SSY)** [sukanya-samriddhi-yojana]:\n\nScheme: Sukanya Samriddhi Yojana (SSY) (sukanya-samriddhi-yojana)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Account must be opened in name of a girl child [Condition: gender eq \"female\"]\n2. Girl child must be below 10 years of age at time of account opening [Condition: age lte 10]\n\nFor official details, visit the portal: https://www.indiapost.gov.in [sukanya-samriddhi-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003278,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-071",
+      "query": "A senior citizen is 70 years and 6 months old. Can they get PMSBY insurance?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-vishwakarma",
+        "pm-kisan",
+        "pm-ujjwala-yojana",
+        "one-stop-centre",
+        "pm-poshan-shakti",
+        "pm-awas-yojana-urban",
+        "pm-yuva",
+        "matru-vandana"
+      ],
+      "reranked_scheme_ids": [
+        "pm-suraksha-bima",
+        "matru-vandana",
+        "pm-vishwakarma",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Suraksha Bima Yojana (PMSBY)** [pm-suraksha-bima]:\n\nScheme: Pradhan Mantri Suraksha Bima Yojana (PMSBY) (pm-suraksha-bima)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Applicant must be at least 18 years old [Condition: age gte 18]\n2. Applicant must be at most 70 years old [Condition: age lte 70]\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-suraksha-bima].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00313,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-072",
+      "query": "Can a woman who has zero income apply for PM Ujjwala 2.0?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-ujjwala-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pmay-urban",
+        "ujjwala",
+        "pm-yasasvi",
+        "health-scheme-12",
+        "udaan",
+        "pm-jay-ayushman",
+        "health-scheme-6",
+        "pmsvanidhi",
+        "agri-scheme-12"
+      ],
+      "reranked_scheme_ids": [
+        "udaan",
+        "ujjwala",
+        "health-scheme-12",
+        "health-scheme-6"
+      ],
+      "cited_scheme_ids": [
+        "udaan"
+      ],
+      "generated_answer": "Based on verified scheme information for **UDAAN Scheme for Girl Students** [udaan]:\n\nScheme: UDAAN Scheme for Girl Students (udaan)\nApplication Procedure & Official Links:\nOfficial Portal: https://cbseacademic.nic.in/udaan.html\nDeadline: 2025-07-08\nProcedure:\nApply through CBSE portal during the application window.\nRequired Documents: Income certificate, School certificate, Aadhaar card\n\nFor official details, visit the portal: https://cbseacademic.nic.in/udaan.html [udaan].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 3,
+        "overall_score": 3,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00298,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-ujjwala-yojana] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-073",
+      "query": "Can a street vendor with an active first loan repayment default get the 2nd tranche ₹20,000 loan in PM SVANidhi?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-svanidhi",
+        "pmsvanidhi",
+        "pm-yasasvi",
+        "pm-vishwakarma",
+        "pm-mudra-yojana",
+        "clss"
+      ],
+      "reranked_scheme_ids": [
+        "pm-svanidhi",
+        "pmsvanidhi"
+      ],
+      "cited_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)** [pm-svanidhi]:\n\nScheme: PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) (pm-svanidhi)\nMinistry: Ministry of Housing and Urban Affairs\nBenefits & Financial Support:\nCollateral-free working capital loan: 1st tranche ₹10,000; 2nd tranche ₹20,000; 3rd tranche ₹50,000 with 7% interest subsidy and cashback on digital transactions.\n\nFor official details, visit the portal: https://pmsvanidhi.mohua.gov.in [pm-svanidhi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003338,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-074",
+      "query": "A 14-year-old child is in Grade 9. Are they covered under PM POSHAN midday meals?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-poshan-shakti"
+      ],
+      "retrieved_scheme_ids": [
+        "poshan-abhiyaan",
+        "pm-vishwakarma",
+        "pm-kisan-man-dhan",
+        "startup-india",
+        "pm-mudra-yojana",
+        "pm-jay-ayushman",
+        "pm-mudra",
+        "blc"
+      ],
+      "reranked_scheme_ids": [
+        "poshan-abhiyaan",
+        "pm-kisan-man-dhan",
+        "startup-india"
+      ],
+      "cited_scheme_ids": [
+        "poshan-abhiyaan"
+      ],
+      "generated_answer": "Based on verified scheme information for **POSHAN Abhiyaan (National Nutrition Mission)** [poshan-abhiyaan]:\n\nScheme: POSHAN Abhiyaan (National Nutrition Mission) (poshan-abhiyaan)\nApplication Procedure & Official Links:\nOfficial Portal: https://poshanabhiyaan.gov.in\nDeadline: 2025-07-08\nProcedure:\nAccess through Anganwadi centers under Ministry of Women & Child Development.\nRequired Documents: Aadhaar, Child registration, Health card\n\nFor official details, visit the portal: https://poshanabhiyaan.gov.in [poshan-abhiyaan].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 3,
+        "overall_score": 3,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.003288,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-poshan-shakti] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-075",
+      "query": "A person with 0.1 hectare of land ownership applies for PM-KISAN. Are they eligible?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-kisan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-vishwakarma",
+        "pm-svanidhi",
+        "kcc",
+        "pm-awas-yojana-urban",
+        "blc",
+        "agri-scheme-14",
+        "pm-shri",
+        "agri-scheme-17"
+      ],
+      "reranked_scheme_ids": [
+        "pm-shri",
+        "pm-svanidhi",
+        "blc",
+        "agri-scheme-14"
+      ],
+      "cited_scheme_ids": [
+        "pm-shri"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM SHRI (PM Schools for Rising India)** [pm-shri]:\n\nScheme: PM SHRI (PM Schools for Rising India) (pm-shri)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nSchools selected based on nominations from state/UT governments.\n\nFor official details, visit the portal: https://pmshri.education.gov.in [pm-shri].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002853,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-kisan] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-076",
+      "query": "Does PMJJBY cover suicide or non-accidental illness deaths?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-jeevan-jyoti"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-mudra",
+        "nishtha",
+        "abry",
+        "pmjay",
+        "delhi-free-bus-pink-pass",
+        "pm-mudra-yojana",
+        "pm-jay-ayushman",
+        "pmsvanidhi",
+        "ahf"
+      ],
+      "reranked_scheme_ids": [
+        "abry",
+        "pmjay",
+        "pm-jay-ayushman",
+        "pm-mudra"
+      ],
+      "cited_scheme_ids": [
+        "abry"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atmanirbhar Bharat Rozgar Yojana (ABRY)** [abry]:\n\nScheme: Atmanirbhar Bharat Rozgar Yojana (ABRY) (abry)\nMinistry: Central\nCategory: Business & Employment\nState Scope: All India\nOverview & Objective:\nIncentivizes employers to create new employment opportunities during the COVID recovery period.\nKeywords: employment, epf, abry, new jobs, subsidy\n\nFor official details, visit the portal: https://epfindia.gov.in [abry].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 5,
+        "overall_score": 3.8,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002908,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-jeevan-jyoti] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-077",
+      "query": "A woman resident of Karnataka has no bank account. Can she receive Gruha Lakshmi via cash?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "retrieved_scheme_ids": [
+        "agri-scheme-14",
+        "agri-scheme-4",
+        "pm-jeevan-jyoti",
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-urban",
+        "udaan",
+        "inspire",
+        "karnataka-gruha-lakshmi",
+        "pm-shri",
+        "kcc"
+      ],
+      "reranked_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "pm-jeevan-jyoti",
+        "pm-kisan-man-dhan",
+        "kcc"
+      ],
+      "cited_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "generated_answer": "Based on verified scheme information for **Gruha Lakshmi Scheme (Karnataka)** [karnataka-gruha-lakshmi]:\n\nScheme: Gruha Lakshmi Scheme (Karnataka) (karnataka-gruha-lakshmi)\nMinistry: Department of Women and Child Development, Karnataka\nBenefits & Financial Support:\nDirect monthly cash transfer of ₹2,000 into the Aadhaar-seeded bank account of the woman head of family.\n\nFor official details, visit the portal: https://sevasindhugs.karnataka.gov.in [karnataka-gruha-lakshmi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00323,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-078",
+      "query": "An artisan practices pottery but uses modern electrical wheels. Does he qualify for PM Vishwakarma?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-awas-yojana-urban",
+        "matru-vandana",
+        "slum-redevelopment",
+        "pmay-urban",
+        "pm-ujjwala-yojana",
+        "pm-kisan"
+      ],
+      "reranked_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-ujjwala-yojana",
+        "pm-awas-yojana-urban"
+      ],
+      "cited_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Vishwakarma Scheme** [pm-vishwakarma]:\n\nScheme: PM Vishwakarma Scheme (pm-vishwakarma)\nMinistry: Ministry of Micro, Small and Medium Enterprises\nCategory: Skill Development\nState Scope: All India\nOverview & Objective:\nHolistic support scheme for traditional artisans and craftspeople providing skill training, toolkit grant of ₹15,000, and collateral-free credit at 5% interest.\n\nFor official details, visit the portal: https://pmvishwakarma.gov.in [pm-vishwakarma].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003463,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-079",
+      "query": "Can a Delhi resident take a Pink Ticket on an AC Low-Floor DTC bus?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-svanidhi",
+        "delhi-free-bus-pink-pass",
+        "pm-mudra-yojana",
+        "pm-vishwakarma",
+        "stand-up-india",
+        "nishtha",
+        "poshan-abhiyaan"
+      ],
+      "reranked_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "pm-svanidhi",
+        "pm-kisan-man-dhan"
+      ],
+      "cited_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "generated_answer": "Based on verified scheme information for **Delhi Free DTC Bus Travel (Pink Ticket)** [delhi-free-bus-pink-pass]:\n\nScheme: Delhi Free DTC Bus Travel (Pink Ticket) (delhi-free-bus-pink-pass)\nMinistry: Transport Department, Government of NCT of Delhi\nBenefits & Financial Support:\n100% fare waiver on all standard, low-floor, and AC DTC/Cluster buses via single-journey Pink tickets.\n\nFor official details, visit the portal: https://transport.delhi.gov.in [delhi-free-bus-pink-pass].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003455,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-080",
+      "query": "A farmer with 2 hectares land is 41 years old. Can he join PM-KMY?",
+      "query_type": "edge_case",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-jeevan-jyoti",
+        "pm-kisan-man-dhan",
+        "pm-ujjwala-yojana",
+        "clss",
+        "pm-jay-ayushman",
+        "blc",
+        "pm-vishwakarma"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "blc",
+        "pm-jeevan-jyoti"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan-man-dhan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Kisan Maan-Dhan Yojana (PM-KMY)** [pm-kisan-man-dhan]:\n\nScheme: PM Kisan Maan-Dhan Yojana (PM-KMY) (pm-kisan-man-dhan)\nMinistry: Ministry of Agriculture and Farmers Welfare\nBenefits & Financial Support:\nAssured monthly pension of ₹3,000 upon reaching 60 years with matching 50% contribution by Central Government.\n\nFor official details, visit the portal: https://maandhan.in [pm-kisan-man-dhan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002815,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-081",
+      "query": "I want the ₹3,000 monthly farmer pension from PM-KISAN.",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-kisan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-shri",
+        "pm-kisan-man-dhan",
+        "pm-svanidhi",
+        "nmeict",
+        "pm-evidya",
+        "pm-kisan",
+        "maharashtra-ladki-bahin"
+      ],
+      "reranked_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "pm-svanidhi",
+        "pm-kisan",
+        "pm-vishwakarma"
+      ],
+      "cited_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra)** [maharashtra-ladki-bahin]:\n\nScheme: Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra) (maharashtra-ladki-bahin)\nMinistry: Department of Women and Child Development, Maharashtra\nBenefits & Financial Support:\nMonthly financial aid of ₹1,500 deposited directly into beneficiary Aadhaar-linked bank account.\n\nFor official details, visit the portal: https://ladakibahin.maharashtra.gov.in [maharashtra-ladki-bahin].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.002975,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-kisan-man-dhan, pm-kisan] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-082",
+      "query": "How much is the accidental death cover under PM Jeevan Jyoti Bima Yojana?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-jeevan-jyoti",
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "matru-vandana",
+        "pm-ujjwala-yojana",
+        "pm-shri",
+        "pm-mudra-yojana",
+        "pm-awas-yojana-gramin",
+        "fasal-bima",
+        "pm-jeevan-jyoti",
+        "pm-kisan-man-dhan",
+        "pm-yasasvi"
+      ],
+      "reranked_scheme_ids": [
+        "pm-jeevan-jyoti",
+        "fasal-bima",
+        "pm-shri"
+      ],
+      "cited_scheme_ids": [
+        "pm-jeevan-jyoti"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)** [pm-jeevan-jyoti]:\n\nScheme: Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) (pm-jeevan-jyoti)\nApplication Procedure & Official Links:\nOfficial Portal: https://financialservices.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Visit the bank branch where you have an active savings bank account.\nStep 2: Submit PMJJBY enrollment form with KYC and nominee details.\nStep 3: Enable auto-debit for ₹436 annual premium renewal every May.\nStep 4: Receive policy confirmation certificate from the partnering life insurer.\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-jeevan-jyoti].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003618,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-jeevan-jyoti, pm-suraksha-bima] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-083",
+      "query": "Does Ayushman Bharat pay ₹5,000 monthly cash to families?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-jay-ayushman",
+        "atal-pension-yojana",
+        "pm-suraksha-bima",
+        "one-stop-centre",
+        "nme-mcm",
+        "pmjay",
+        "pm-kisan-man-dhan"
+      ],
+      "reranked_scheme_ids": [
+        "pm-jay-ayushman",
+        "pmjay"
+      ],
+      "cited_scheme_ids": [
+        "pm-jay-ayushman"
+      ],
+      "generated_answer": "Based on verified scheme information for **Ayushman Bharat PM-JAY** [pm-jay-ayushman]:\n\nScheme: Ayushman Bharat PM-JAY (pm-jay-ayushman)\nMinistry: Ministry of Health and Family Welfare\nBenefits & Financial Support:\nCashless and paperless access to medical services up to ₹5,00,000 per family per year across 27,000+ empanelled hospitals.\n\nFor official details, visit the portal: https://nha.gov.in/PM-JAY [pm-jay-ayushman].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.002968,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-084",
+      "query": "Can I get a ₹50,000 loan from PM Ujjwala Yojana?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-ujjwala-yojana",
+        "pm-svanidhi",
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "ujjwala",
+        "pm-awas-yojana-gramin",
+        "pm-ujjwala-yojana",
+        "maharashtra-ladki-bahin",
+        "pm-svanidhi",
+        "pm-mudra",
+        "pm-mudra-yojana",
+        "pmay-urban",
+        "pmay-gramin"
+      ],
+      "reranked_scheme_ids": [
+        "ujjwala",
+        "pm-ujjwala-yojana",
+        "pm-svanidhi"
+      ],
+      "cited_scheme_ids": [
+        "ujjwala"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Ujjwala Yojana (PMUY)** [ujjwala]:\n\nScheme: Pradhan Mantri Ujjwala Yojana (PMUY) (ujjwala)\nMinistry: Central\nState Scope: All India\nEligibility Criteria:\nWomen from BPL households listed in SECC data or eligible via state schemes.\n\nFor official details, visit the portal: https://pmuy.gov.in [ujjwala].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.0028,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-ujjwala-yojana, pm-svanidhi, pm-mudra-yojana] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-085",
+      "query": "Is Gruha Lakshmi available for women living in Maharashtra?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "maharashtra-ladki-bahin"
+      ],
+      "retrieved_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "pm-vishwakarma",
+        "women-helpline-181",
+        "pm-mudra-yojana",
+        "matru-vandana",
+        "nmeict",
+        "nfm-sc",
+        "one-stop-centre",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "karnataka-gruha-lakshmi",
+        "women-helpline-181",
+        "nfm-sc"
+      ],
+      "cited_scheme_ids": [
+        "karnataka-gruha-lakshmi"
+      ],
+      "generated_answer": "Based on verified scheme information for **Gruha Lakshmi Scheme (Karnataka)** [karnataka-gruha-lakshmi]:\n\nScheme: Gruha Lakshmi Scheme (Karnataka) (karnataka-gruha-lakshmi)\nMinistry: Department of Women and Child Development, Karnataka\nState Scope: Karnataka\nEligibility Criteria:\n1. Must be a resident of Karnataka state [Condition: state in [\"Karnataka\",\"All India\"]]\n2. Applicant must be woman head of the family as named in Ration card [Condition: gender eq \"female\"]\n3. Must be at least 18 years of age [Condition: age gte 18]\n\nFor official details, visit the portal: https://sevasindhugs.karnataka.gov.in [karnataka-gruha-lakshmi].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003483,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [karnataka-gruha-lakshmi, maharashtra-ladki-bahin] missing in top-4 reranked chunks."
+      ]
+    },
+    {
+      "query_id": "eval-086",
+      "query": "How do I get a free bus pass in Delhi if I am a student boy?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "pmsvanidhi",
+        "pmay-urban",
+        "maharashtra-ladki-bahin",
+        "health-scheme-11",
+        "delhi-free-bus-pink-pass",
+        "pm-mudra-yojana",
+        "make-in-india",
+        "swayam"
+      ],
+      "reranked_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "sukanya-samriddhi-yojana",
+        "pmsvanidhi",
+        "pmay-urban"
+      ],
+      "cited_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "generated_answer": "Based on verified scheme information for **Delhi Free DTC Bus Travel (Pink Ticket)** [delhi-free-bus-pink-pass]:\n\nScheme: Delhi Free DTC Bus Travel (Pink Ticket) (delhi-free-bus-pink-pass)\nApplication Procedure & Official Links:\nOfficial Portal: https://transport.delhi.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Board any DTC or DIMTS cluster bus in Delhi.\nStep 2: Inform the bus conductor that you are requesting a women's single journey Pink Ticket.\nStep 3: Conductor hands over the free ₹10/₹15/₹25 face-value Pink Ticket immediately.\nStep 4: No advance registration, pass card, or identity document is required.\n\nFor official details, visit the portal: https://transport.delhi.gov.in [delhi-free-bus-pink-pass].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003818,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-087",
+      "query": "Can I open a Sukanya Samriddhi account for my son?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "sukanya",
+        "pm-jeevan-jyoti",
+        "pm-mudra",
+        "pm-suraksha-bima",
+        "sukanya-samriddhi-yojana",
+        "pm-yasasvi",
+        "agri-scheme-15",
+        "working-women-hostel"
+      ],
+      "reranked_scheme_ids": [
+        "sukanya-samriddhi-yojana",
+        "sukanya",
+        "pm-jeevan-jyoti"
+      ],
+      "cited_scheme_ids": [
+        "sukanya-samriddhi-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Sukanya Samriddhi Yojana (SSY)** [sukanya-samriddhi-yojana]:\n\nScheme: Sukanya Samriddhi Yojana (SSY) (sukanya-samriddhi-yojana)\nMinistry: Ministry of Finance\nState Scope: All India\nEligibility Criteria:\n1. Account must be opened in name of a girl child [Condition: gender eq \"female\"]\n2. Girl child must be below 10 years of age at time of account opening [Condition: age lte 10]\n\nFor official details, visit the portal: https://www.indiapost.gov.in [sukanya-samriddhi-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.00324,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-088",
+      "query": "Does PMAY-G give me a loan or a direct grant?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-awas-yojana-gramin"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-urban",
+        "delhi-free-bus-pink-pass",
+        "agri-scheme-19",
+        "clss",
+        "pm-awas-yojana-gramin",
+        "blc",
+        "women-helpline-181",
+        "pm-mudra",
+        "pm-svanidhi"
+      ],
+      "reranked_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "pm-svanidhi",
+        "pm-awas-yojana-urban",
+        "clss"
+      ],
+      "cited_scheme_ids": [
+        "pm-awas-yojana-gramin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)** [pm-awas-yojana-gramin]:\n\nScheme: Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) (pm-awas-yojana-gramin)\nMinistry: Ministry of Rural Development\nBenefits & Financial Support:\nFinancial grant of ₹1,20,000 in plains and ₹1,30,000 in hilly/difficult areas, plus 90 days MGNREGA wages and ₹12,000 toilet grant.\n\nFor official details, visit the portal: https://pmayg.nic.in [pm-awas-yojana-gramin].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003193,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-089",
+      "query": "Is PM Vishwakarma only for government employees?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-shri",
+        "pm-kisan-man-dhan",
+        "pm-yasasvi",
+        "pm-mudra-yojana",
+        "pmay-urban",
+        "pm-awas-yojana-gramin",
+        "pm-vishwakarma",
+        "icds",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "pm-shri",
+        "pm-yasasvi",
+        "pm-vishwakarma"
+      ],
+      "cited_scheme_ids": [
+        "pm-shri"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM SHRI (PM Schools for Rising India)** [pm-shri]:\n\nScheme: PM SHRI (PM Schools for Rising India) (pm-shri)\nMinistry: Central\nBenefits & Financial Support:\nSmart classrooms, modern infrastructure, experiential learning resources.\n\nFor official details, visit the portal: https://pmshri.education.gov.in [pm-shri].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 1,
+        "overall_score": 3.1,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002608,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 0/1 expected facts. Grounded in context: true."
+      ]
+    },
+    {
+      "query_id": "eval-090",
+      "query": "Can I get Atal Pension Yojana without a bank account?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-mudra-yojana",
+        "pm-kisan-man-dhan",
+        "pmssy",
+        "sukanya-samriddhi-yojana",
+        "agri-scheme-13",
+        "pm-ujjwala-yojana",
+        "kcc",
+        "pm-suraksha-bima"
+      ],
+      "reranked_scheme_ids": [
+        "atal-pension-yojana",
+        "pm-kisan-man-dhan",
+        "pmssy"
+      ],
+      "cited_scheme_ids": [
+        "atal-pension-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Atal Pension Yojana (APY)** [atal-pension-yojana]:\n\nScheme: Atal Pension Yojana (APY) (atal-pension-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nGuaranteed minimum monthly pension of ₹1,000 to ₹5,000 upon reaching 60 years, with spouse pension and nominee return of corpus.\n\nFor official details, visit the portal: https://www.npscra.nsdl.co.in [atal-pension-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.00274,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-091",
+      "query": "Does PM-KISAN provide free fertilizer bags to farmers?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-kisan"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-awas-yojana-gramin",
+        "pm-kisan-man-dhan",
+        "pm-kisan",
+        "pm-vishwakarma",
+        "kcc",
+        "slum-redevelopment",
+        "pm-jeevan-jyoti",
+        "pmay-urban"
+      ],
+      "reranked_scheme_ids": [
+        "pm-kisan",
+        "pm-kisan-man-dhan",
+        "pm-vishwakarma"
+      ],
+      "cited_scheme_ids": [
+        "pm-kisan"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM-KISAN Samman Nidhi** [pm-kisan]:\n\nScheme: PM-KISAN Samman Nidhi (pm-kisan)\nMinistry: Central\nCategory: Agriculture\nState Scope: All India\nOverview & Objective:\nProvides ₹6,000 per year in three installments to small and marginal farmers.\nKeywords: farmer, kisan, pm-kisan, agriculture, income\n\nFor official details, visit the portal: https://pmkisan.gov.in [pm-kisan].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.002798,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-092",
+      "query": "Can I get a ₹20 lakh loan under PM SVANidhi?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-svanidhi",
+        "pm-mudra-yojana"
+      ],
+      "retrieved_scheme_ids": [
+        "pmsvanidhi",
+        "pm-suraksha-bima",
+        "clss",
+        "pm-evidya",
+        "pm-svanidhi",
+        "agri-scheme-19",
+        "pm-mudra-yojana",
+        "pm-kisan-man-dhan",
+        "udaan"
+      ],
+      "reranked_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-svanidhi",
+        "pm-suraksha-bima",
+        "clss"
+      ],
+      "cited_scheme_ids": [
+        "pm-mudra-yojana"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri MUDRA Yojana (PMMY)** [pm-mudra-yojana]:\n\nScheme: Pradhan Mantri MUDRA Yojana (PMMY) (pm-mudra-yojana)\nMinistry: Ministry of Finance\nBenefits & Financial Support:\nCollateral-free loans: Shishu (up to ₹50,000), Kishore (₹50,000 to ₹5 Lakh), Tarun (₹5 Lakh to ₹10 Lakh), and Tarun Plus (up to ₹20 Lakh).\n\nFor official details, visit the portal: https://www.mudra.org.in [pm-mudra-yojana].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 2/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.003013,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-093",
+      "query": "Is the ₹20 premium for PMSBY deducted every month?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-suraksha-bima",
+        "poshan-abhiyaan",
+        "kcc",
+        "agri-scheme-20",
+        "pm-vishwakarma",
+        "atal-pension-yojana",
+        "pm-yuva",
+        "matru-vandana"
+      ],
+      "reranked_scheme_ids": [
+        "pm-suraksha-bima",
+        "pm-kisan-man-dhan",
+        "poshan-abhiyaan"
+      ],
+      "cited_scheme_ids": [
+        "pm-suraksha-bima"
+      ],
+      "generated_answer": "Based on verified scheme information for **Pradhan Mantri Suraksha Bima Yojana (PMSBY)** [pm-suraksha-bima]:\n\nScheme: Pradhan Mantri Suraksha Bima Yojana (PMSBY) (pm-suraksha-bima)\nApplication Procedure & Official Links:\nOfficial Portal: https://financialservices.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Log in to your bank net-banking portal or visit your bank branch.\nStep 2: Select 'Social Security Schemes' and opt into PMSBY.\nStep 3: Authorize auto-debit of ₹20 annual premium from your savings account.\nStep 4: Download the insurance acknowledgment certificate.\n\nFor official details, visit the portal: https://financialservices.gov.in [pm-suraksha-bima].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 5,
+        "overall_score": 4.7,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003708,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-094",
+      "query": "Does Ladki Bahin give ₹2,000 per month like Karnataka?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "karnataka-gruha-lakshmi"
+      ],
+      "retrieved_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "digital-edu-arch",
+        "atal-pension-yojana",
+        "karnataka-gruha-lakshmi",
+        "pm-poshan-shakti",
+        "clss",
+        "nfm-sc",
+        "agri-scheme-11"
+      ],
+      "reranked_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "atal-pension-yojana",
+        "karnataka-gruha-lakshmi"
+      ],
+      "cited_scheme_ids": [
+        "maharashtra-ladki-bahin"
+      ],
+      "generated_answer": "Based on verified scheme information for **Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra)** [maharashtra-ladki-bahin]:\n\nScheme: Mukhyamantri Majhi Ladki Bahin Yojana (Maharashtra) (maharashtra-ladki-bahin)\nApplication Procedure & Official Links:\nOfficial Portal: https://ladakibahin.maharashtra.gov.in\nDeadline: 2026-12-31\nProcedure:\nStep 1: Download the 'Nari Shakti Doot' mobile app or visit ladakibahin.maharashtra.gov.in.\nStep 2: Register using mobile number and enter Aadhaar details.\nStep 3: Upload Domicile Certificate (or 15-year Ration card / voter ID) and Income Certificate.\nStep 4: Submit bank account details linked with NPCI Aadhaar mapper.\nStep 5: Track status and receive monthly disbursement.\n\nFor official details, visit the portal: https://ladakibahin.maharashtra.gov.in [maharashtra-ladki-bahin].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 0.5,
+      "judge": {
+        "faithfulness_score": 4.5,
+        "relevance_score": 3,
+        "overall_score": 3.9,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: true."
+      },
+      "latency_ms": 2,
+      "cost_usd": 0.004408,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-095",
+      "query": "Can high school students in Grade 11 get PM POSHAN mid-day meals?",
+      "query_type": "near_miss_trap",
+      "target_scheme_ids": [
+        "pm-poshan-shakti"
+      ],
+      "retrieved_scheme_ids": [
+        "pm-mudra-yojana",
+        "pm-jay-ayushman",
+        "pm-kisan",
+        "nfm-sc",
+        "pmssy",
+        "samagra-shiksha",
+        "imprint",
+        "nsp",
+        "poshan-shakti",
+        "poshan-abhiyaan"
+      ],
+      "reranked_scheme_ids": [
+        "nfm-sc",
+        "poshan-shakti",
+        "poshan-abhiyaan",
+        "samagra-shiksha"
+      ],
+      "cited_scheme_ids": [
+        "nfm-sc"
+      ],
+      "generated_answer": "Based on verified scheme information for **National Fellowship for SC Students** [nfm-sc]:\n\nScheme: National Fellowship for SC Students (nfm-sc)\nMinistry: Central\nCategory: Education\nState Scope: All India\nOverview & Objective:\nFellowships for SC students pursuing MPhil and PhD programs.\nKeywords: sc, phd, fellowship, research, ugc\n\nFor official details, visit the portal: https://www.ugc.ac.in [nfm-sc].",
+      "recall_at_4": false,
+      "citation_precision": 1,
+      "citation_recall": 0,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 1,
+        "overall_score": 2.2,
+        "hallucination_detected": true,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 0/1 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002748,
+      "passed": false,
+      "failure_reasons": [
+        "Target scheme(s) [pm-poshan-shakti] missing in top-4 reranked chunks.",
+        "LLM Judge failed: Rule-based evaluation: Matched 0/1 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-096",
+      "query": "How do I apply for the Elon Musk Free Crypto Grant Scheme from the Indian Government?",
+      "query_type": "negative_out_of_scope",
+      "target_scheme_ids": [],
+      "retrieved_scheme_ids": [
+        "atal-pension-yojana",
+        "matru-vandana",
+        "pm-vishwakarma",
+        "pm-jeevan-jyoti",
+        "pm-mudra-yojana",
+        "health-scheme-10",
+        "abhim",
+        "agri-scheme-10",
+        "agri-scheme-6"
+      ],
+      "reranked_scheme_ids": [
+        "pm-vishwakarma",
+        "pm-jeevan-jyoti",
+        "atal-pension-yojana",
+        "health-scheme-10"
+      ],
+      "cited_scheme_ids": [
+        "pm-vishwakarma"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Vishwakarma Scheme** [pm-vishwakarma]:\n\nScheme: PM Vishwakarma Scheme (pm-vishwakarma)\nApplication Procedure & Official Links:\nOfficial Portal: https://pmvishwakarma.gov.in\nDeadline: open_all_year\nProcedure:\nStep 1: Visit Common Service Centre (CSC) for Aadhaar biometric authentication.\nStep 2: Select your traditional trade from the 18 recognized craft disciplines.\nStep 3: Submit application for 3-stage verification (Gram Panchayat / ULB -> District -> State).\nStep 4: Attend 5-7 days basic skill training at assigned training center.\nStep 5: Receive ₹15,000 toolkit voucher and access to collateral-free enterprise loan.\n\nFor official details, visit the portal: https://pmvishwakarma.gov.in [pm-vishwakarma].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 3,
+        "overall_score": 3,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.00416,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-097",
+      "query": "What are the eligibility rules for NASA Astronaut Training Subsidy by Ministry of Agriculture?",
+      "query_type": "negative_out_of_scope",
+      "target_scheme_ids": [],
+      "retrieved_scheme_ids": [
+        "clss",
+        "pm-vishwakarma",
+        "agri-scheme-9",
+        "nishtha",
+        "pm-kisan-man-dhan",
+        "light-house-projects",
+        "agri-scheme-15",
+        "agri-scheme-4",
+        "pm-jeevan-jyoti",
+        "karnataka-gruha-lakshmi"
+      ],
+      "reranked_scheme_ids": [
+        "clss",
+        "nishtha",
+        "pm-vishwakarma",
+        "agri-scheme-9"
+      ],
+      "cited_scheme_ids": [
+        "clss"
+      ],
+      "generated_answer": "Based on verified scheme information for **Credit Linked Subsidy Scheme (CLSS)** [clss]:\n\nScheme: Credit Linked Subsidy Scheme (CLSS) (clss)\nMinistry: Central\nCategory: Housing\nState Scope: All India\nOverview & Objective:\nProvides interest subsidies on home loans for the purchase, construction, or extension of houses.\nKeywords: clss, loan, interest subsidy, pmay, home loan\n\nFor official details, visit the portal: https://pmaymis.gov.in [clss].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 5,
+        "overall_score": 3.8,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 4,
+      "cost_usd": 0.002983,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-098",
+      "query": "Can I get ₹50 lakh free cash with no repayment under PM Free Money Yojana?",
+      "query_type": "negative_out_of_scope",
+      "target_scheme_ids": [],
+      "retrieved_scheme_ids": [
+        "pm-kisan-man-dhan",
+        "pm-awas-yojana-urban",
+        "pm-svanidhi",
+        "pmay-gramin",
+        "pm-evidya",
+        "pm-vishwakarma",
+        "kcc",
+        "pm-jeevan-jyoti",
+        "sukanya-samriddhi-yojana",
+        "udaan"
+      ],
+      "reranked_scheme_ids": [
+        "pm-svanidhi",
+        "kcc",
+        "pm-vishwakarma",
+        "udaan"
+      ],
+      "cited_scheme_ids": [
+        "pm-svanidhi"
+      ],
+      "generated_answer": "Based on verified scheme information for **PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)** [pm-svanidhi]:\n\nScheme: PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) (pm-svanidhi)\nMinistry: Ministry of Housing and Urban Affairs\nBenefits & Financial Support:\nCollateral-free working capital loan: 1st tranche ₹10,000; 2nd tranche ₹20,000; 3rd tranche ₹50,000 with 7% interest subsidy and cashback on digital transactions.\n\nFor official details, visit the portal: https://pmsvanidhi.mohua.gov.in [pm-svanidhi].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 3,
+        "overall_score": 3,
+        "hallucination_detected": false,
+        "verdict": "FAIL",
+        "reasoning": "Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.002915,
+      "passed": false,
+      "failure_reasons": [
+        "LLM Judge failed: Rule-based evaluation: Matched 1/2 expected facts. Grounded in context: false."
+      ]
+    },
+    {
+      "query_id": "eval-099",
+      "query": "How do I claim the 2026 Free iPhone for All Citizens scheme?",
+      "query_type": "negative_out_of_scope",
+      "target_scheme_ids": [],
+      "retrieved_scheme_ids": [
+        "maharashtra-ladki-bahin",
+        "sukanya-samriddhi-yojana",
+        "atal-pension-yojana",
+        "pmsvanidhi",
+        "pm-ujjwala-yojana",
+        "agri-scheme-12",
+        "delhi-free-bus-pink-pass",
+        "agri-scheme-5",
+        "pm-vishwakarma"
+      ],
+      "reranked_scheme_ids": [
+        "delhi-free-bus-pink-pass",
+        "pm-vishwakarma",
+        "sukanya-samriddhi-yojana",
+        "atal-pension-yojana"
+      ],
+      "cited_scheme_ids": [
+        "delhi-free-bus-pink-pass"
+      ],
+      "generated_answer": "Based on verified scheme information for **Delhi Free DTC Bus Travel (Pink Ticket)** [delhi-free-bus-pink-pass]:\n\nScheme: Delhi Free DTC Bus Travel (Pink Ticket) (delhi-free-bus-pink-pass)\nMinistry: Transport Department, Government of NCT of Delhi\nState Scope: Delhi\nEligibility Criteria:\n1. Applicable for all female passengers [Condition: gender eq \"female\"]\n2. Available in Delhi NCT public transit routes [Condition: state in [\"Delhi\",\"All India\"]]\n\nFor official details, visit the portal: https://transport.delhi.gov.in [delhi-free-bus-pink-pass].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 5,
+        "overall_score": 3.8,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003535,
+      "passed": true,
+      "failure_reasons": []
+    },
+    {
+      "query_id": "eval-100",
+      "query": "What is the application deadline for the Universal 100% Tax Waiver for Everyone Scheme?",
+      "query_type": "negative_out_of_scope",
+      "target_scheme_ids": [],
+      "retrieved_scheme_ids": [
+        "pm-mudra-yojana",
+        "atal-pension-yojana",
+        "pm-poshan-shakti",
+        "pmjay",
+        "clss",
+        "agri-scheme-8",
+        "nfm-sc",
+        "pm-vishwakarma",
+        "delhi-free-bus-pink-pass",
+        "agri-scheme-12"
+      ],
+      "reranked_scheme_ids": [
+        "nfm-sc",
+        "atal-pension-yojana",
+        "pm-vishwakarma",
+        "delhi-free-bus-pink-pass"
+      ],
+      "cited_scheme_ids": [
+        "nfm-sc"
+      ],
+      "generated_answer": "Based on verified scheme information for **National Fellowship for SC Students** [nfm-sc]:\n\nScheme: National Fellowship for SC Students (nfm-sc)\nApplication Procedure & Official Links:\nOfficial Portal: https://www.ugc.ac.in\nDeadline: 2025-07-08\nProcedure:\nApply online through the UGC portal.\nRequired Documents: Caste certificate, Admission letter, Bank account, Income proof\n\nFor official details, visit the portal: https://www.ugc.ac.in [nfm-sc].",
+      "recall_at_4": true,
+      "citation_precision": 1,
+      "citation_recall": 1,
+      "judge": {
+        "faithfulness_score": 3,
+        "relevance_score": 5,
+        "overall_score": 3.8,
+        "hallucination_detected": false,
+        "verdict": "PASS",
+        "reasoning": "Rule-based evaluation: Matched 1/1 expected facts. Grounded in context: false."
+      },
+      "latency_ms": 3,
+      "cost_usd": 0.003398,
+      "passed": true,
+      "failure_reasons": []
+    }
+  ]
+}
