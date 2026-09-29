@@ -8,6 +8,8 @@
 [![Latency](https://img.shields.io/badge/p95%20Latency-16ms%20(50%20VUs)-success.svg)](file:///Users/mohdwaqar/Desktop/YojanaPortal/loadtest/run-loadtest.ts)
 
 > **Yojana Dost** is a production-grade Indian Government Welfare Schemes discovery, eligibility screening, and AI assistance platform inspired by [myScheme.gov.in](https://www.myscheme.gov.in/). It combines a **Grounded Hybrid RAG pipeline**, **0.92-cosine vector semantic caching**, **automated cost guardrails**, and a native **Model Context Protocol (MCP)** server for Claude Desktop and Cursor.
+>
+> 🔌 **MCP server layer over this dataset**: [https://github.com/waqarbytes/india-schemes-mcp](https://github.com/waqarbytes/india-schemes-mcp)
 
 ---
 
